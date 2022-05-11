@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Snowboardshop:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Snowboardshop</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Snowboardshop-1.0.war">
+      <element id="artifact" artifact-name="Snowboardshop:war exploded" />
+    </root>
+  </artifact>
+</component>
