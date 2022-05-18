@@ -45,17 +45,17 @@ public class DataHandler {
 
 
     /**
-     * reads all books
-     * @return list of books
+     * reads all shops
+     * @return list of shops
      */
     public List<Shop> readAllShops() {
         return getShopList();
     }
 
     /**
-     * reads a book by its uuid
+     * reads a shop by its uuid
      * @param shopUUID
-     * @return the Book (null=not found)
+     * @return the Shop (null=not found)
      */
     public Shop readShopByUUID(String shopUUID) {
         Shop shop = null;
@@ -92,7 +92,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the books from the JSON-file
+     * reads the shops from the JSON-file
      */
     private void readShopJSON() {
         try {
@@ -103,7 +103,7 @@ public class DataHandler {
             ObjectMapper objectMapper = new ObjectMapper();
             Shop[] shops = objectMapper.readValue(jsonData, Shop[].class);
             for (Shop shop : shops) {
-                getBookList().add(shop);
+                getShopList().add(shop);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
