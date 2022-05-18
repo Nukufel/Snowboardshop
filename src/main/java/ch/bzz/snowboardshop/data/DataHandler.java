@@ -27,10 +27,10 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setPublisherList(new ArrayList<>());
-        readPublisherJSON();
-        setBookList(new ArrayList<>());
-        readBookJSON();
+        setSnowboardList(new ArrayList<>());
+        readSnowboardJSON();
+        setShopList(new ArrayList<>());
+        readShopJSON();
     }
 
     /**
@@ -48,19 +48,19 @@ public class DataHandler {
      * reads all books
      * @return list of books
      */
-    public List<Shop> readAllBooks() {
-        return getBookList();
+    public List<Shop> readAllShops() {
+        return getShopList();
     }
 
     /**
      * reads a book by its uuid
-     * @param bookUUID
+     * @param shopUUID
      * @return the Book (null=not found)
      */
-    public Shop readBookByUUID(String bookUUID) {
+    public Shop readShopByUUID(String shopUUID) {
         Shop shop = null;
-        for (Shop entry : getBookList()) {
-            if (entry.getBookUUID().equals(bookUUID)) {
+        for (Shop entry : getShopList()) {
+            if (entry.getShopUUID().equals(shopUUID)) {
                 shop = entry;
             }
         }
@@ -68,42 +68,42 @@ public class DataHandler {
     }
 
     /**
-     * reads all Publishers
-     * @return list of publishers
+     * reads all Snowboards
+     * @return list of snowboards
      */
-    public List<Snowboard> readAllPublishers() {
+    public List<Snowboard> readAllSnowboards() {
 
-        return getPublisherList();
+        return getSnowboardList();
     }
 
     /**
-     * reads a publisher by its uuid
-     * @param publisherUUID
-     * @return the Publisher (null=not found)
+     * reads a snowboard by its uuid
+     * @param snowboardUUID
+     * @return the Snowboard (null=not found)
      */
-    public Publisher readPublisherByUUID(String publisherUUID) {
-        Publisher publisher = null;
-        for (Publisher entry : getPublisherList()) {
-            if (entry.getPublisherUUID().equals(publisherUUID)) {
-                publisher = entry;
+    public Snowboard readSnowboardByUUID(String snowboardUUID) {
+        Snowboard snowboard = null;
+        for (Snowboard entry : getSnowboardList()) {
+            if (entry.getSnowboardUUID().equals(snowboardUUID)) {
+                 snowboard = entry;
             }
         }
-        return publisher;
+        return snowboard;
     }
 
     /**
      * reads the books from the JSON-file
      */
-    private void readBookJSON() {
+    private void readShopJSON() {
         try {
-            String path = Config.getProperty("bookJSON");
+            String path = Config.getProperty("shopJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Book[] books = objectMapper.readValue(jsonData, Book[].class);
-            for (Book book : books) {
-                getBookList().add(book);
+            Shop[] shops = objectMapper.readValue(jsonData, Shop[].class);
+            for (Shop shop : shops) {
+                getBookList().add(shop);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -113,56 +113,56 @@ public class DataHandler {
     /**
      * reads the publishers from the JSON-file
      */
-    private void readPublisherJSON() {
+    private void readSnowboardJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
-                            Config.getProperty("publisherJSON")
+                            Config.getProperty("snowboardJSON")
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
-            for (Publisher publisher : publishers) {
-                getPublisherList().add(publisher);
+            Snowboard[] snowboards = objectMapper.readValue(jsonData, Snowboard[].class);
+            for (Snowboard snowboard : snowboards) {
+                getSnowboardList().add(snowboard);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     /**
-     * gets bookList
+     * gets shopList
      *
-     * @return value of bookList
+     * @return value of shopList
      */
-    private List<Book> getBookList() {
-        return bookList;
+    private List<Shop> getShopList() {
+        return shopList;
     }
 
     /**
-     * sets bookList
+     * sets shopList
      *
-     * @param bookList the value to set
+     * @param shopList the value to set
      */
-    private void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
+    private void setShopList(List<Shop> shopList) {
+        this.shopList = shopList;
     }
 
     /**
-     * gets publisherList
+     * gets snowboardList
      *
-     * @return value of publisherList
+     * @return value of snowboardList
      */
-    private List<Publisher> getPublisherList() {
-        return publisherList;
+    private List<Snowboard> getSnowboardList() {
+        return snowboardList;
     }
 
     /**
-     * sets publisherList
+     * sets snowboardList
      *
-     * @param publisherList the value to set
+     * @param snowboardList the value to set
      */
-    private void setPublisherList(List<Publisher> publisherList) {
-        this.publisherList = publisherList;
+    private void setSnowboardList(List<Snowboard> snowboardList) {
+        this.snowboardList = snowboardList;
     }
 
 
