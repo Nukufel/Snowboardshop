@@ -21,6 +21,7 @@ public class DataHandler {
     private static DataHandler instance = null;
     private List<Shop> shopList;
     private List<Snowboard> snowboardList;
+    private List<Marke> markeList;
 
 
     /**
@@ -31,6 +32,8 @@ public class DataHandler {
         readSnowboardJSON();
         setShopList(new ArrayList<>());
         readShopJSON();
+        setMarkeList(new ArrayList<>());
+        readMarkeJSON();
     }
 
     /**
@@ -92,6 +95,29 @@ public class DataHandler {
     }
 
     /**
+     * reads all Marken
+     * @return list of makren
+     */
+    public List<Marke> readAllMarke() {
+        return getMarkeList();
+    }
+
+    /**
+     * reads a marke by its uuid
+     * @param markeUUID
+     * @return the Marke (null=not found)
+     */
+    public Marke readMarkeByUUID(String markeUUID) {
+        Marke marke = null;
+        for (Marke entry : getMarkeList()) {
+            if (entry.getMarkeUUID().equals(markeUUID)) {
+                marke = entry;
+            }
+        }
+        return marke;
+    }
+
+    /**
      * reads the shops from the JSON-file
      */
     private void readShopJSON() {
@@ -129,6 +155,24 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
+
+    private void readMarkeJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("markeJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Marke[] marken = objectMapper.readValue(jsonData, Marke[].class);
+            for (Marke marke : marken) {
+                getMarkeList().add(marke);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     /**
      * gets shopList
      *
@@ -165,5 +209,18 @@ public class DataHandler {
         this.snowboardList = snowboardList;
     }
 
+    /**
+     * gets markeList
+     *
+     * @return value of snowboardList
+     */
+    public List<Marke> getMarkeList() {return markeList; }
+
+    /**
+     * sets markeList
+     *
+     * @param markeList the value to set
+     */
+    public void setMarkeList(List<Marke> markeList) {this.markeList = markeList; }
 
 }
