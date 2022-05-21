@@ -5,7 +5,7 @@ public class Snowboard {
     private Double snowboardLänge;
     private String snowboardArt;
     private Double snowboardPreis;
-    private Marke snowboardMarke;
+    private String snowboardMarke;
 
     public String getSnowboardUUID() {
         return snowboardUUID;
@@ -39,11 +39,11 @@ public class Snowboard {
         this.snowboardPreis = snowboardPreis;
     }
 
-    public Marke getSnowboardMarke() {
+    public String getSnowboardMarke() {
         return snowboardMarke;
     }
 
-    public void setSnowboardMarke(Marke snowboardMarke) {
+    public void setSnowboardMarke(String snowboardMarke) {
         this.snowboardMarke = snowboardMarke;
     }
 }
