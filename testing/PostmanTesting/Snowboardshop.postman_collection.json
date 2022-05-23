@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "a17e998f-2a15-4f2c-9f96-c78701dd012e",
+		"name": "Snowboardshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.1 Testservice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShopList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"shop",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SnowboardList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"snowboard",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkeList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"marke",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShopUUID false",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"shop",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SnowboardUUID false",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"snowboard",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkeUUID false",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"marke",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShopUUID NULL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"shop",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SnowboardUUID NULL ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"snowboard",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkeUUID NULL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Snowboardshop-1.0",
+						"resource",
+						"marke",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
