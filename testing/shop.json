@@ -1,0 +1,26 @@
+[
+    {
+        "shopUUID": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+        "shopName": "SnowFun",
+        "shopTel": "07936214416",
+        "shopAdresse": "Wehntalerstrasse 172",
+        "shopPLZ": "8057",
+        "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
+    },
+    {
+        "shopUUID": "bcf83eea-3868-48cb-a8ed-d5b898b875c5",
+        "shopName": "Bord and Slide",
+        "shopTel": "0793614415",
+        "shopAdresse": "Wehntalerstrasse 173",
+        "shopPLZ": "8075",
+        "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
+    },
+    {
+        "shopUUID": "aca2c2a0-c447-42e0-ba39-8424b3382315",
+        "shopName": "Frozen Boards",
+        "shopTel": "0793614414",
+        "shopAdresse": "Wehntalerstrasse 174",
+        "shopPLZ": "8057",
+        "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
+    }
+]

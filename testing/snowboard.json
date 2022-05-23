@@ -1,0 +1,23 @@
+﻿[
+    {
+        "snowboardUUID": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+        "snowboardLänge": "150",
+        "snowboardArt": "All-Mountain",
+        "snowboardPreis": "509.50",
+        "snowboardMarke": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
+    },
+    {
+        "snowboardUUID": "16391558-14b4-4070-9fc1-de9a62146e5c",
+        "snowboardLänge": "160",
+        "snowboardArt": "Freeride",
+        "snowboardPreis": "406.00",
+        "snowboardMarke": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
+    },
+    {
+        "snowboardUUID": "297a9da1-e3b1-412f-af38-0b4c976e440b",
+        "snowboardLänge": "140",
+        "snowboardArt": "Freestyle",
+        "snowboardPreis": "637.75",
+        "snowboardMarke": "1a808431-1101-42b9-9657-8ff947523c1a"
+    }
+]
