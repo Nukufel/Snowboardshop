@@ -16,7 +16,7 @@ import java.util.Set;
 @ApplicationPath("/resource")
 
 public class Config extends Application {
-    private static final String PROPERTIES_PATH = "/home/bzz/webapp/bookList.properties";
+    private static final String PROPERTIES_PATH = "/home/bzz/webapp/snowboardShop.properties";
     private static Properties properties = null;
     /**
      * define all provider classes
@@ -27,6 +27,9 @@ public class Config extends Application {
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(ch.bzz.snowboardshop.service.TestService.class);
+        providers.add(MarkeService.class);
+        providers.add(ShopService.class);
+        providers.add(SnowboardService.class);
         return providers;
     }
     /**
