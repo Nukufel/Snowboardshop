@@ -14,8 +14,7 @@ import java.util.List;
 public class ShopService {
 
     /**
-     * confirms the application runs
-     * @return  message
+     * @return all itmes of Shop
      */
     @GET
     @Path("list")
@@ -28,6 +27,11 @@ public class ShopService {
                 .build();
     }
 
+    /**
+     * reads an item by its UUID
+     *
+     * @return object of shop
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

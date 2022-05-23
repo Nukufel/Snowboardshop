@@ -9,13 +9,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("marke")
 public class MarkeService {
     /**
-     * confirms the application runs
-     * @return  message
+     * @return all itmes of Marke
      */
     @GET
     @Path("list")
@@ -28,6 +29,11 @@ public class MarkeService {
                 .build();
     }
 
+    /**
+     * reads an item by its UUID
+     *
+     * @return object of marke
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,7 +44,7 @@ public class MarkeService {
 
         Marke marke = DataHandler.getInstance().readMarkeByUUID(markeUUID);
 
-        if (marke==null) {
+        if (marke == null) {
             return Response.status(404).entity(marke).build();
         }
 

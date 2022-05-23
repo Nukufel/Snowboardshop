@@ -16,8 +16,7 @@ import java.util.List;
 public class SnowboardService {
 
     /**
-     * confirms the application runs
-     * @return  message
+     * @return all itmes of Snowboard
      */
     @GET
     @Path("list")
@@ -30,6 +29,11 @@ public class SnowboardService {
                 .build();
     }
 
+    /**
+     * reads an item by its UUID
+     *
+     * @return object of snowboard
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
