@@ -1,0 +1,319 @@
+{
+	"id": "9881461c-e26d-4aa9-aab4-19af9b11f6bb",
+	"name": "Snowboardshop",
+	"timestamp": "2022-05-23T18:56:23.706Z",
+	"collection_id": "a17e998f-2a15-4f2c-9f96-c78701dd012e",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 9,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "85b7b9ea-29ae-46f9-a111-5570d15bafe9",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/test/test",
+			"time": 34,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e4ce8459-a126-4bc6-b85f-6715206024fe",
+			"name": "ShopList",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/list",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "0a9c30b7-5b8a-4019-a561-44fbbfafb752",
+			"name": "ShopUUID false",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=23",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "5a4ce69d-8aef-4b62-8018-daa62ffde14f",
+			"name": "ShopUUID NULL",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=",
+			"time": 27,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "7e460fae-9bc3-4ea0-a9dc-489612e15fc0",
+			"name": "SnowboardList",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/list",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "e4c95d76-35af-4f35-86bc-72928056edcb",
+			"name": "SnowboardUUID false",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=23",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "94d96a4e-1ec4-48da-9e95-880e03bff410",
+			"name": "SnowboardUUID NULL ",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "9a296008-a7c5-4140-8996-60a9280230e6",
+			"name": "MarkeList",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/marke/list",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "137ffb20-c824-4e97-a620-0df3cc502a41",
+			"name": "MarkeUUID false",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=23",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "9d23455d-21a3-472c-bf3b-a0e40269b4e9",
+			"name": "MarkeUUID NULL",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 152,
+	"collection": {
+		"requests": [
+			{
+				"id": "85b7b9ea-29ae-46f9-a111-5570d15bafe9",
+				"method": "GET"
+			},
+			{
+				"id": "e4ce8459-a126-4bc6-b85f-6715206024fe",
+				"method": "GET"
+			},
+			{
+				"id": "0a9c30b7-5b8a-4019-a561-44fbbfafb752",
+				"method": "GET"
+			},
+			{
+				"id": "5a4ce69d-8aef-4b62-8018-daa62ffde14f",
+				"method": "GET"
+			},
+			{
+				"id": "7e460fae-9bc3-4ea0-a9dc-489612e15fc0",
+				"method": "GET"
+			},
+			{
+				"id": "e4c95d76-35af-4f35-86bc-72928056edcb",
+				"method": "GET"
+			},
+			{
+				"id": "94d96a4e-1ec4-48da-9e95-880e03bff410",
+				"method": "GET"
+			},
+			{
+				"id": "9a296008-a7c5-4140-8996-60a9280230e6",
+				"method": "GET"
+			},
+			{
+				"id": "137ffb20-c824-4e97-a620-0df3cc502a41",
+				"method": "GET"
+			},
+			{
+				"id": "9d23455d-21a3-472c-bf3b-a0e40269b4e9",
+				"method": "GET"
+			}
+		]
+	}
+}
