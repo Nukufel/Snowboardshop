@@ -4,19 +4,31 @@ public class Marke {
     private String markeUUID;
     private String markeName;
 
-    public String getMarkeUUID() {
-        return markeUUID;
-    }
+    /**
+     * gets markeUUID
+     *
+     * @return value of markeUUID
+     */
+    public String getMarkeUUID() {return markeUUID; }
 
-    public void setMarkeUUID(String markeUUID) {
-        this.markeUUID = markeUUID;
-    }
+    /**
+     * sets markeUUID
+     *
+     * @param markeUUID the value to set
+     */
+    public void setMarkeUUID(String markeUUID) {this.markeUUID = markeUUID;}
 
-    public String getMarkeName() {
-        return markeName;
-    }
+    /**
+     * gets markeName
+     *
+     * @return value of markeName
+     */
+    public String getMarkeName() {return markeName;}
 
-    public void setMarkeName(String markeName) {
-        this.markeName = markeName;
-    }
+    /**
+     * sets markeName
+     *
+     * @param markeName the value to set
+     */
+    public void setMarkeName(String markeName) {this.markeName = markeName;}
 }
