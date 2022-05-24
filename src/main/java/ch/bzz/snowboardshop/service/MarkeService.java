@@ -64,9 +64,7 @@ public class MarkeService {
     public Response sortListMarke() {
         List<Marke> markeList = DataHandler.getInstance().readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
-        cloned_markeList = (List<Marke>) cloned_markeList
-            .stream()
-            .sorted(Comparator.comparing(Marke::getMarkeName));
+        cloned_markeList.sort(Comparator.comparing(Marke::getMarkeName));
         return Response
                 .status(200)
                 .entity(cloned_markeList)
