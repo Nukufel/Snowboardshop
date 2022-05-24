@@ -30,7 +30,7 @@ public class MarkeService {
         List<Marke> markeList = DataHandler.getInstance().readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
-            if(sort == "hight"){
+            if(sort.equals("name")){
                 cloned_markeList.sort(Comparator.comparing(Marke::getMarkeName));
             }
             return Response

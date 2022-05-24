@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,11 +28,11 @@ public class ShopService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listShops(@QueryParam("sort") String sort ) {
         List<Shop> shopList = DataHandler.getInstance().readAllShops();
-        List<Shop> cloned_shopList = shopList.stream().collect(Collectors.toList());
+        List<Shop> cloned_shopList = new ArrayList<>(shopList);
         if (sort!=null && !sort.isEmpty()) {
-            if(sort == "name"){
+            if(sort.equals("name")){
                 cloned_shopList.sort(Comparator.comparing(Shop::getShopName));
-            }else if(sort == "snowboards"){
+            }else if(sort.equals("snowboards")){
                 cloned_shopList.sort(Comparator.comparing(Shop::getSnowboardUUIDListLength));
             }
             return Response

@@ -28,9 +28,9 @@ public class SnowboardService {
         List<Snowboard> snowboardList = DataHandler.getInstance().readAllSnowboards();
         List<Snowboard> cloned_snowboardList = snowboardList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
-            if(sort == "hight"){
+            if(sort.equals("hight")){
                 cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
-            }else if(sort == "price"){
+            }else if(sort.equals("price")){
                 cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardPrice));
             }
             return Response
