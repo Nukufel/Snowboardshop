@@ -10,6 +10,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,24 @@ public class MarkeService {
         return Response
                 .status(200)
                 .entity(marke)
+                .build();
+    }
+
+    /**
+     * @return all itmes of Marke sorted
+     */
+    @GET
+    @Path("listsort")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sortListMarke() {
+        List<Marke> markeList = DataHandler.getInstance().readAllMarke();
+        List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
+        cloned_markeList = (List<Marke>) cloned_markeList
+            .stream()
+            .sorted(Comparator.comparing(Marke::getMarkeName));
+        return Response
+                .status(200)
+                .entity(cloned_markeList)
                 .build();
     }
 
