@@ -1,7 +1,6 @@
 package ch.bzz.snowboardshop.service;
 
 import ch.bzz.snowboardshop.data.DataHandler;
-import ch.bzz.snowboardshop.model.Shop;
 import ch.bzz.snowboardshop.model.Snowboard;
 
 import javax.ws.rs.GET;
@@ -10,23 +9,41 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("snowboard")
 public class SnowboardService {
 
     /**
-     * @return all itmes of Snowboard
+     *
+     * @param sort
+     * @return all items of Snowboards sorted or unsorted
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSnowboards() {
+    public Response listSnowboards(@QueryParam("sort") String sort) {
         List<Snowboard> snowboardList = DataHandler.getInstance().readAllSnowboards();
-        return Response
-                .status(200)
-                .entity(snowboardList)
-                .build();
+        List<Snowboard> cloned_snowboardList = snowboardList.stream().collect(Collectors.toList());
+        if (sort!=null && !sort.isEmpty()) {
+            if(sort == "hight"){
+                cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
+            }else if(sort == "price"){
+                cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardPrice));
+            }
+            return Response
+                    .status(200)
+                    .entity(cloned_snowboardList)
+                    .build();
+            }else {
+            return Response
+                    .status(200)
+                    .entity(snowboardList)
+                    .build();
+            }
+
     }
 
     /**
@@ -53,8 +70,6 @@ public class SnowboardService {
                 .entity(snowboard)
                 .build();
     }
-
-
 }
 
 

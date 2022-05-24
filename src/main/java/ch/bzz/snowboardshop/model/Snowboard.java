@@ -2,9 +2,9 @@ package ch.bzz.snowboardshop.model;
 
 public class Snowboard {
     private String snowboardUUID;
-    private Double snowboardLänge;
+    private Double snowboardHight;
     private String snowboardArt;
-    private Double snowboardPreis;
+    private Double snowboardPrice;
     private String snowboardMarke;
 
     /**
@@ -30,17 +30,17 @@ public class Snowboard {
      *
      * @return value of snowboardLänge
      */
-    public Double getSnowboardLänge() {
-        return snowboardLänge;
+    public Double getSnowboardHight() {
+        return snowboardHight;
     }
 
     /**
      * sets snowboardLänge
      *
-     * @param snowboardLänge the value to set
+     * @param snowboardHight the value to set
      */
-    public void setSnowboardLänge(Double snowboardLänge) {
-        this.snowboardLänge = snowboardLänge;
+    public void setSnowboardHight(Double snowboardHight) {
+        this.snowboardHight = snowboardHight;
     }
 
     /**
@@ -66,17 +66,17 @@ public class Snowboard {
      *
      * @return value of snowboardPreis
      */
-    public Double getSnowboardPreis() {
-        return snowboardPreis;
+    public Double getSnowboardPrice() {
+        return snowboardPrice;
     }
 
     /**
      * sets snowboardPreis
      *
-     * @param snowboardPreis the value to set
+     * @param snowboardPrice the value to set
      */
-    public void setSnowboardPreis(Double snowboardPreis) {
-        this.snowboardPreis = snowboardPreis;
+    public void setSnowboardPrice(Double snowboardPrice) {
+        this.snowboardPrice = snowboardPrice;
     }
 
     /**

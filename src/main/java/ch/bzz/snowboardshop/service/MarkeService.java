@@ -2,6 +2,7 @@ package ch.bzz.snowboardshop.service;
 
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
+import ch.bzz.snowboardshop.model.Snowboard;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,18 +17,32 @@ import java.util.stream.Collectors;
 
 @Path("marke")
 public class MarkeService {
+
     /**
-     * @return all itmes of Marke
+     *
+     * @param sort
+     * @return all items of Marke sorted or unsorted
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listMarke() {
+    public Response listMarke(@QueryParam("sort") String sort) {
         List<Marke> markeList = DataHandler.getInstance().readAllMarke();
-        return Response
-                .status(200)
-                .entity(markeList)
-                .build();
+        List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
+        if (sort!=null && !sort.isEmpty()) {
+            if(sort == "hight"){
+                cloned_markeList.sort(Comparator.comparing(Marke::getMarkeName));
+            }
+            return Response
+                    .status(200)
+                    .entity(cloned_markeList)
+                    .build();
+        }else {
+            return Response
+                    .status(200)
+                    .entity(markeList)
+                    .build();
+        }
     }
 
     /**
@@ -56,10 +71,10 @@ public class MarkeService {
     }
 
     /**
-     * @return all itmes of Marke sorted
+     * @return all itmes of Marke sorted by alphabet
      */
     @GET
-    @Path("listsort")
+    @Path("listsortname")
     @Produces(MediaType.APPLICATION_JSON)
     public Response sortListMarke() {
         List<Marke> markeList = DataHandler.getInstance().readAllMarke();

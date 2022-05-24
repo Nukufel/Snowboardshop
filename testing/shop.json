@@ -5,6 +5,7 @@
         "shopTel": "07936214416",
         "shopAdresse": "Wehntalerstrasse 172",
         "shopPLZ": "8057",
+        "shopDate": "2018.04.10",
         "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
     },
     {
@@ -13,6 +14,7 @@
         "shopTel": "0793614415",
         "shopAdresse": "Wehntalerstrasse 173",
         "shopPLZ": "8075",
+        "shopDate": "2009.05.17",
         "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
     },
     {
@@ -21,6 +23,7 @@
         "shopTel": "0793614414",
         "shopAdresse": "Wehntalerstrasse 174",
         "shopPLZ": "8057",
+        "shopDate": "2021.10.06",
         "snowboardUUIDList": ["23ceb54c-bef4-4533-8907-e43149bec8e9","23ceb54c-bef4-4533-8907-e43149bec8e9"]
     }
 ]

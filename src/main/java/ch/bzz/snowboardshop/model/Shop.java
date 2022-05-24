@@ -108,4 +108,7 @@ public class Shop {
      * @param snowboardUUIDList the value to set
      */
     public void setSnowboardUUIDList(List<String> snowboardUUIDList) {this.snowboardUUIDList = snowboardUUIDList; }
+
+    public int getSnowboardUUIDListLength(){return snowboardUUIDList.size();}
 }
+
