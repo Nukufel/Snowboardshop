@@ -3,14 +3,12 @@ package ch.bzz.snowboardshop.service;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Snowboard;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Path("snowboard")
@@ -70,6 +68,8 @@ public class SnowboardService {
                 .entity(snowboard)
                 .build();
     }
+
+
 }
 
 

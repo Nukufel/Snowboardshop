@@ -6,9 +6,12 @@ import ch.bzz.snowboardshop.model.Snowboard;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -218,4 +221,137 @@ public class DataHandler {
      */
     public static void setMarkeList(List<Marke> markeList) {DataHandler.markeList = markeList; }
 
+
+
+    /**
+     * deletes a snowboard identified by the snowboardUUID
+     * @param snowboardUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteSnowboard(String snowboardUUID) {
+        Snowboard snowboard = readSnowboardByUUID(snowboardUUID);
+        if (snowboard != null) {
+            getSnowboardList().remove(snowboard);
+            writeSnowboardJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * deletes a shop identified by the shopUUID
+     * @param shopUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteShop(String shopUUID) {
+        Shop shop = readShopByUUID(shopUUID);
+        if (shop != null) {
+            getShopList().remove(shop);
+            writeShopJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * deletes a marke identified by the markeUUID
+     * @param markeUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteMarke(String markeUUID) {
+        Marke marke = readMarkeByUUID(markeUUID);
+        if (marke != null) {
+            getMarkeList().remove(marke);
+            writeMarkeJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+    /**
+     * writes the snowboardList to the JSON-file
+     */
+    private static void writeSnowboardJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String snowboardPath = Config.getProperty("snowboardJSON");
+        try {
+            fileOutputStream = new FileOutputStream(snowboardPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getSnowboardList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * writes the shopList to the JSON-file
+     */
+    private static void writeShopJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String shopPath = Config.getProperty("shopPath");
+        try {
+            fileOutputStream = new FileOutputStream(shopPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getShopList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * writes the snowboardList to the JSON-file
+     */
+    private static void writeMarkeJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String markePath = Config.getProperty("markeJSON");
+        try {
+            fileOutputStream = new FileOutputStream(markePath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getMarkeList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * updates the snowboardList
+     */
+    public static void snowboardBook() {
+        writeSnowboardJSON();
+    }
+
+    /**
+     * updates the shopList
+     */
+    public static void shopBook() {
+        writeShopJSON();
+    }
+
+    /**
+     * updates the markeList
+     */
+    public static void markeBook() {
+        writeMarkeJSON();
+    }
 }
