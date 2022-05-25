@@ -18,40 +18,23 @@ import java.util.List;
  * reads and writes the data in the JSON-files
  */
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Shop> shopList;
-    private List<Snowboard> snowboardList;
-    private List<Marke> markeList;
+
+    private static List<Shop> shopList;
+    private static List<Snowboard> snowboardList;
+    private static List<Marke> markeList;
 
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setSnowboardList(new ArrayList<>());
-        readSnowboardJSON();
-        setShopList(new ArrayList<>());
-        readShopJSON();
-        setMarkeList(new ArrayList<>());
-        readMarkeJSON();
     }
-
-    /**
-     * gets the only instance of this class
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
-
 
     /**
      * reads all shops
      * @return list of shops
      */
-    public List<Shop> readAllShops() {
+    public static List<Shop> readAllShops() {
         return getShopList();
     }
 
@@ -60,7 +43,7 @@ public class DataHandler {
      * @param shopUUID
      * @return the Shop (null=not found)
      */
-    public Shop readShopByUUID(String shopUUID) {
+    public static Shop readShopByUUID(String shopUUID) {
         Shop shop = null;
         for (Shop entry : getShopList()) {
             if (entry.getShopUUID().equals(shopUUID)) {
@@ -74,7 +57,7 @@ public class DataHandler {
      * reads all Snowboards
      * @return list of snowboards
      */
-    public List<Snowboard> readAllSnowboards() {
+    public static List<Snowboard> readAllSnowboards() {
 
         return getSnowboardList();
     }
@@ -84,7 +67,7 @@ public class DataHandler {
      * @param snowboardUUID
      * @return the Snowboard (null=not found)
      */
-    public Snowboard readSnowboardByUUID(String snowboardUUID) {
+    public static Snowboard readSnowboardByUUID(String snowboardUUID) {
         Snowboard snowboard = null;
         for (Snowboard entry : getSnowboardList()) {
             if (entry.getSnowboardUUID().equals(snowboardUUID)) {
@@ -98,7 +81,7 @@ public class DataHandler {
      * reads all Marken
      * @return list of makren
      */
-    public List<Marke> readAllMarke() {
+    public static List<Marke> readAllMarke() {
         return getMarkeList();
     }
 
@@ -107,7 +90,7 @@ public class DataHandler {
      * @param markeUUID
      * @return the Marke (null=not found)
      */
-    public Marke readMarkeByUUID(String markeUUID) {
+    public static Marke readMarkeByUUID(String markeUUID) {
         Marke marke = null;
         for (Marke entry : getMarkeList()) {
             if (entry.getMarkeUUID().equals(markeUUID)) {
@@ -120,7 +103,7 @@ public class DataHandler {
     /**
      * reads the shops from the JSON-file
      */
-    private void readShopJSON() {
+    private static void readShopJSON() {
         try {
             String path = Config.getProperty("shopJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -139,7 +122,7 @@ public class DataHandler {
     /**
      * reads the publishers from the JSON-file
      */
-    private void readSnowboardJSON() {
+    private static void readSnowboardJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -156,7 +139,7 @@ public class DataHandler {
         }
     }
 
-    private void readMarkeJSON() {
+    private static void readMarkeJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -178,7 +161,7 @@ public class DataHandler {
      *
      * @return value of shopList
      */
-    private List<Shop> getShopList() {
+    private static List<Shop> getShopList() {
         return shopList;
     }
 
@@ -187,8 +170,8 @@ public class DataHandler {
      *
      * @param shopList the value to set
      */
-    private void setShopList(List<Shop> shopList) {
-        this.shopList = shopList;
+    private static void setShopList(List<Shop> shopList) {
+        DataHandler.shopList = shopList;
     }
 
     /**
@@ -196,7 +179,7 @@ public class DataHandler {
      *
      * @return value of snowboardList
      */
-    private List<Snowboard> getSnowboardList() {
+    private static List<Snowboard> getSnowboardList() {
         return snowboardList;
     }
 
@@ -205,8 +188,8 @@ public class DataHandler {
      *
      * @param snowboardList the value to set
      */
-    private void setSnowboardList(List<Snowboard> snowboardList) {
-        this.snowboardList = snowboardList;
+    private static void setSnowboardList(List<Snowboard> snowboardList) {
+        DataHandler.snowboardList = snowboardList;
     }
 
     /**
@@ -214,13 +197,13 @@ public class DataHandler {
      *
      * @return value of snowboardList
      */
-    public List<Marke> getMarkeList() {return markeList; }
+    public static List<Marke> getMarkeList() {return markeList; }
 
     /**
      * sets markeList
      *
      * @param markeList the value to set
      */
-    public void setMarkeList(List<Marke> markeList) {this.markeList = markeList; }
+    public static void setMarkeList(List<Marke> markeList) {DataHandler.markeList = markeList; }
 
 }
