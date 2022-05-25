@@ -27,7 +27,7 @@ public class MarkeService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listMarke(@QueryParam("sort") String sort) {
-        List<Marke> markeList = DataHandler.getInstance().readAllMarke();
+        List<Marke> markeList = DataHandler.readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("name")){
@@ -58,7 +58,7 @@ public class MarkeService {
             return Response.status(400).build();
         }
 
-        Marke marke = DataHandler.getInstance().readMarkeByUUID(markeUUID);
+        Marke marke = DataHandler.readMarkeByUUID(markeUUID);
 
         if (marke == null) {
             return Response.status(404).entity(marke).build();
@@ -77,7 +77,7 @@ public class MarkeService {
     @Path("listsortname")
     @Produces(MediaType.APPLICATION_JSON)
     public Response sortListMarke() {
-        List<Marke> markeList = DataHandler.getInstance().readAllMarke();
+        List<Marke> markeList = DataHandler.readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
         cloned_markeList.sort(Comparator.comparing(Marke::getMarkeName));
         return Response

@@ -19,16 +19,15 @@ import java.util.List;
  */
 public class DataHandler {
 
-    private static List<Shop> shopList;
-    private static List<Snowboard> snowboardList;
-    private static List<Marke> markeList;
+    private static List<Shop> shopList = null;
+    private static List<Snowboard> snowboardList = null;
+    private static List<Marke> markeList = null;
 
 
     /**
      * private constructor defeats instantiation
      */
-    private DataHandler() {
-    }
+    private DataHandler() {}
 
     /**
      * reads all shops
@@ -162,6 +161,10 @@ public class DataHandler {
      * @return value of shopList
      */
     private static List<Shop> getShopList() {
+        if (shopList==null) {
+            setShopList(new ArrayList<>());
+            readAllShops();
+        }
         return shopList;
     }
 
@@ -180,6 +183,10 @@ public class DataHandler {
      * @return value of snowboardList
      */
     private static List<Snowboard> getSnowboardList() {
+        if (snowboardList==null) {
+            setSnowboardList(new ArrayList<>());
+            readAllSnowboards();
+        }
         return snowboardList;
     }
 
@@ -197,7 +204,12 @@ public class DataHandler {
      *
      * @return value of snowboardList
      */
-    public static List<Marke> getMarkeList() {return markeList; }
+    public static List<Marke> getMarkeList() {
+        if (markeList==null) {
+            setMarkeList(new ArrayList<>());
+            readAllMarke();
+        }
+        return markeList; }
 
     /**
      * sets markeList
