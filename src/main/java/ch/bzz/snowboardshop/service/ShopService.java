@@ -27,7 +27,7 @@ public class ShopService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listShops(@QueryParam("sort") String sort ) {
-        List<Shop> shopList = DataHandler.getInstance().readAllShops();
+        List<Shop> shopList = DataHandler.readAllShops();
         List<Shop> cloned_shopList = new ArrayList<>(shopList);
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("name")){
@@ -60,7 +60,7 @@ public class ShopService {
             return Response.status(400).build();
         }
 
-        Shop shop = DataHandler.getInstance().readShopByUUID(shopUUID);
+        Shop shop = DataHandler.readShopByUUID(shopUUID);
 
         if (shop==null) {
             return Response.status(404).entity(shop).build();

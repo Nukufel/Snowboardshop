@@ -25,7 +25,7 @@ public class SnowboardService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listSnowboards(@QueryParam("sort") String sort) {
-        List<Snowboard> snowboardList = DataHandler.getInstance().readAllSnowboards();
+        List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
         List<Snowboard> cloned_snowboardList = snowboardList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("hight")){
@@ -59,7 +59,7 @@ public class SnowboardService {
             return Response.status(400).build();
         }
 
-        Snowboard snowboard = DataHandler.getInstance().readSnowboardByUUID(snowboardUUID);
+        Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
 
         if (snowboard==null) {
             return Response.status(404).entity(snowboard).build();
