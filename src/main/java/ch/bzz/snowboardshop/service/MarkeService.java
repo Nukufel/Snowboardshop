@@ -4,15 +4,13 @@ import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Snowboard;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Path("marke")
@@ -85,5 +83,82 @@ public class MarkeService {
                 .entity(cloned_markeList)
                 .build();
     }
+
+    /**
+     * daletes a marke
+     * @return  empty String
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteMarke(@QueryParam("uuid") String markeUUID) {
+        int httpStatus;
+        if(markeUUID != null){
+            Marke marke = DataHandler.readMarkeByUUID(markeUUID);
+            if (!markeUUID.isEmpty()){
+                DataHandler.deleteMarke(markeUUID);
+                DataHandler.updateMarke();
+                httpStatus = 200;
+            }else{
+                httpStatus = 404;
+            }
+        }else{
+            httpStatus = 404;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createMarke(@FormParam("markeName")String markeName) {
+        Marke marke = new Marke();
+        marke.setMarkeName(markeName);
+        marke.setMarkeUUID(UUID.randomUUID().toString());
+        DataHandler.insertMarke(marke);
+
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+
+
+
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateMarke(@FormParam("markeUUID")String markeUUID,@FormParam("markeName")String markeName) {
+        int httpStatus;
+        if (markeUUID != null) {
+            Marke marke = DataHandler.readMarkeByUUID(markeUUID);
+            if (!markeUUID.isEmpty()) {
+                marke.setMarkeUUID(markeUUID);
+                marke.setMarkeName(markeName);
+                DataHandler.insertMarke(marke);
+                httpStatus = 200;
+            } else {
+                httpStatus = 404;
+            }
+        } else {
+            httpStatus = 404;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+
+    }
+
 
 }

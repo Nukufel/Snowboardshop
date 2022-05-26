@@ -337,21 +337,37 @@ public class DataHandler {
     /**
      * updates the snowboardList
      */
-    public static void snowboardBook() {
+    public static void updateSnowboard() {
         writeSnowboardJSON();
     }
 
     /**
      * updates the shopList
      */
-    public static void shopBook() {
+    public static void updateShop() {
         writeShopJSON();
     }
 
     /**
      * updates the markeList
      */
-    public static void markeBook() {
+    public static void updateMarke() {
         writeMarkeJSON();
+    }
+
+
+    public static void insertSnowboard(Snowboard snowboard) {
+        getSnowboardList().add(snowboard);
+        writeSnowboardJSON();
+    }
+
+    public static void insertMarke(Marke marke) {
+        getMarkeList().add(marke);
+        writeMarkeJSON();
+    }
+
+    public static void insertShop(Shop shop) {
+        getShopList().add(shop);
+        writeShopJSON();
     }
 }

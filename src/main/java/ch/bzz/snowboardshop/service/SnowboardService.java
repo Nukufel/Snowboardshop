@@ -70,7 +70,92 @@ public class SnowboardService {
     }
 
 
-}
+
+
+
+
+
+    /**
+     * daletes a book
+     * @return  empty String
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteSnowboard(@QueryParam("uuid") String snowboardUUID) {
+        int httpStatus;
+        if(snowboardUUID != null){
+            Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+            if (!snowboardUUID.isEmpty()){
+                DataHandler.deleteSnowboard(snowboardUUID);
+                DataHandler.updateSnowboard();
+                httpStatus = 200;
+            }else{
+                httpStatus = 404;
+            }
+        }else{
+            httpStatus = 404;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createBook(@FormParam("snowboardHight")Double snowboardHight, @FormParam("snowboardArt")String snowboardArt, @FormParam("snowboardPrice")Double snowboardPrice, @FormParam("snowboardMarke")String snowboardMarke) {
+        Snowboard snowboard = new Snowboard();
+        snowboard.setSnowboardHight(snowboardHight);
+        snowboard.setSnowboardArt(snowboardArt);
+        snowboard.setSnowboardPrice(snowboardPrice);
+        snowboard.setSnowboardMarke(snowboardMarke);
+        snowboard.setSnowboardUUID(UUID.randomUUID().toString());
+        DataHandler.insertSnowboard(snowboard);
+
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+
+
+
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateSnowboard(@FormParam("snowboardUUID")String snowboardUUID,@FormParam("snowboardHight")Double snowboardHight, @FormParam("snowboardArt")String snowboardArt, @FormParam("snowboardPrice")Double snowboardPrice, @FormParam("snowboardMarke")String snowboardMarke) {
+        int httpStatus;
+        if (snowboardUUID != null) {
+            Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+            if (!snowboardUUID.isEmpty()) {
+                snowboard.setSnowboardUUID(snowboardUUID);
+                snowboard.setSnowboardHight(snowboardHight);
+                snowboard.setSnowboardArt(snowboardArt);
+                snowboard.setSnowboardPrice(snowboardPrice);
+                snowboard.setSnowboardMarke(snowboardMarke);
+                DataHandler.insertSnowboard(snowboard);
+                httpStatus = 200;
+            } else {
+                httpStatus = 404;
+            }
+        } else {
+            httpStatus = 404;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+
+    }}
 
 
 
