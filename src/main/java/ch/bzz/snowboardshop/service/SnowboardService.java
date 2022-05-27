@@ -6,6 +6,7 @@ import ch.bzz.snowboardshop.model.Snowboard;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +25,7 @@ public class SnowboardService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listSnowboards(@QueryParam("sort") String sort) {
         List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
-        List<Snowboard> cloned_snowboardList = snowboardList.stream().collect(Collectors.toList());
+        List<Snowboard> cloned_snowboardList = new ArrayList<>(snowboardList);
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("hight")){
                 cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
@@ -37,7 +38,7 @@ public class SnowboardService {
                     .build();
             }else {
             return Response
-                    .status(404)
+                    .status(200)
                     .entity(snowboardList)
                     .build();
             }
