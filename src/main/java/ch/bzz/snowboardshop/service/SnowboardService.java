@@ -96,7 +96,7 @@ public class SnowboardService {
 
     }
 
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createSnowboard(
@@ -138,14 +138,13 @@ public class SnowboardService {
     {
         int httpStatus = 200;
         Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
-        if (snowboardUUID != null) {
-            snowboard.setSnowboardUUID(snowboardUUID);
+        if (snowboard != null) {
             snowboard.setSnowboardHight(snowboardHight);
             snowboard.setSnowboardArt(snowboardArt);
             snowboard.setSnowboardPrice(snowboardPrice);
             snowboard.setSnowboardMarke(snowboardMarke);
 
-            DataHandler.updateSnowboard();
+            DataHandler.insertSnowboard(snowboard);
         } else {
             httpStatus = 410;
         }

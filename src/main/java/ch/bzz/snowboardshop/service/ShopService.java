@@ -95,13 +95,6 @@ public class ShopService {
 
     }
 
-        return Response
-                .status(httpStatus)
-                .entity("")
-                .build();
-
-
-    }
 
     @POST
     @Path("create")
