@@ -99,14 +99,22 @@ public class ShopService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createShop(@FormParam("snowboardUUIDList")List<String> snowboardUUIDList,@FormParam("shopPLZ")String shopPLZ ,@FormParam("shopAdresse")String shopAdresse ,@FormParam("shopTel")String shopTel ,@FormParam("shopName")String shopName) {
+    public Response createShop(
+            @FormParam("snowboardUUIDList")List<String> snowboardUUIDList,
+            @FormParam("shopPLZ")String shopPLZ ,
+            @FormParam("shopAdresse")String shopAdresse ,
+            @FormParam("shopTel")String shopTel ,
+            @FormParam("shopName")String shopName)
+    {
         Shop shop = new Shop();
         shop.setShopAdresse(shopAdresse);
         shop.setShopName(shopName);
         shop.setShopPLZ(shopPLZ);
         shop.setShopTel(shopTel);
         shop.setSnowboardUUIDList(snowboardUUIDList);
+
         shop.setShopUUID(UUID.randomUUID().toString());
+
         DataHandler.insertShop(shop);
 
         return Response
@@ -127,7 +135,6 @@ public class ShopService {
         if (shopUUID != null) {
             Shop shop = DataHandler.readShopByUUID(shopUUID);
             if (!shopUUID.isEmpty()) {
-                shop.setShopUUID(shopUUID);
                 shop.setShopTel(shopTel);
                 shop.setShopPLZ(shopPLZ);
                 shop.setShopAdresse(shopAdresse);

@@ -37,7 +37,7 @@ public class SnowboardService {
                     .build();
             }else {
             return Response
-                    .status(200)
+                    .status(404)
                     .entity(snowboardList)
                     .build();
             }
