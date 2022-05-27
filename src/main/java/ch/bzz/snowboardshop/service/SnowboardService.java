@@ -76,26 +76,17 @@ public class SnowboardService {
 
 
     /**
-     * daletes a book
+     * daletes a snowboard by its uuid
      * @return  empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteSnowboard(@QueryParam("uuid") String snowboardUUID) {
-        int httpStatus;
-        if(snowboardUUID != null){
-            Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
-            if (!snowboardUUID.isEmpty()){
-                DataHandler.deleteSnowboard(snowboardUUID);
-                DataHandler.updateSnowboard();
-                httpStatus = 200;
-            }else{
-                httpStatus = 404;
+        int httpStatus = 200;
+            if (!DataHandler.deleteSnowboard(snowboardUUID)){
+                httpStatus = 410;
             }
-        }else{
-            httpStatus = 404;
-        }
 
         return Response
                 .status(httpStatus)
@@ -105,16 +96,24 @@ public class SnowboardService {
 
     }
 
-    @POST
+    @PUT
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createBook(@FormParam("snowboardHight")Double snowboardHight, @FormParam("snowboardArt")String snowboardArt, @FormParam("snowboardPrice")Double snowboardPrice, @FormParam("snowboardMarke")String snowboardMarke) {
+    public Response createSnowboard(
+            @FormParam("snowboardHight")Double snowboardHight,
+            @FormParam("snowboardArt")String snowboardArt,
+            @FormParam("snowboardPrice")Double snowboardPrice,
+            @FormParam("snowboardMarke")String snowboardMarke)
+    {
         Snowboard snowboard = new Snowboard();
+
         snowboard.setSnowboardHight(snowboardHight);
         snowboard.setSnowboardArt(snowboardArt);
         snowboard.setSnowboardPrice(snowboardPrice);
         snowboard.setSnowboardMarke(snowboardMarke);
+
         snowboard.setSnowboardUUID(UUID.randomUUID().toString());
+
         DataHandler.insertSnowboard(snowboard);
 
         return Response
@@ -130,23 +129,25 @@ public class SnowboardService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateSnowboard(@FormParam("snowboardUUID")String snowboardUUID,@FormParam("snowboardHight")Double snowboardHight, @FormParam("snowboardArt")String snowboardArt, @FormParam("snowboardPrice")Double snowboardPrice, @FormParam("snowboardMarke")String snowboardMarke) {
-        int httpStatus;
+    public Response updateSnowboard(
+            @FormParam("snowboardUUID")String snowboardUUID,
+            @FormParam("snowboardHight")Double snowboardHight,
+            @FormParam("snowboardArt")String snowboardArt,
+            @FormParam("snowboardPrice")Double snowboardPrice,
+            @FormParam("snowboardMarke")String snowboardMarke)
+    {
+        int httpStatus = 200;
+        Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
         if (snowboardUUID != null) {
-            Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
-            if (!snowboardUUID.isEmpty()) {
-                snowboard.setSnowboardUUID(snowboardUUID);
-                snowboard.setSnowboardHight(snowboardHight);
-                snowboard.setSnowboardArt(snowboardArt);
-                snowboard.setSnowboardPrice(snowboardPrice);
-                snowboard.setSnowboardMarke(snowboardMarke);
-                DataHandler.insertSnowboard(snowboard);
-                httpStatus = 200;
-            } else {
-                httpStatus = 404;
-            }
+            snowboard.setSnowboardUUID(snowboardUUID);
+            snowboard.setSnowboardHight(snowboardHight);
+            snowboard.setSnowboardArt(snowboardArt);
+            snowboard.setSnowboardPrice(snowboardPrice);
+            snowboard.setSnowboardMarke(snowboardMarke);
+
+            DataHandler.updateSnowboard();
         } else {
-            httpStatus = 404;
+            httpStatus = 410;
         }
 
         return Response

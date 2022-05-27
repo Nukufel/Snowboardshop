@@ -75,26 +75,25 @@ public class ShopService {
 
 
     /**
-     * daletes a shop
+     * daletes a shop by its uuid
      * @return  empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteShop(@QueryParam("uuid") String shopUUID) {
-        int httpStatus;
-        if(shopUUID != null){
-            Shop shop = DataHandler.readShopByUUID(shopUUID);
-            if (!shopUUID.isEmpty()){
-                DataHandler.deleteShop(shopUUID);
-                DataHandler.updateShop();
-                httpStatus = 200;
-            }else{
-                httpStatus = 404;
-            }
-        }else{
-            httpStatus = 404;
+        int httpStatus = 200;
+        if (!DataHandler.deleteShop(shopUUID)){
+            httpStatus = 410;
         }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+
+
+    }
 
         return Response
                 .status(httpStatus)

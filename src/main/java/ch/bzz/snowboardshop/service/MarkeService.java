@@ -85,25 +85,16 @@ public class MarkeService {
     }
 
     /**
-     * daletes a marke
+     * daletes a snowboard by its uuid
      * @return  empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteMarke(@QueryParam("uuid") String markeUUID) {
-        int httpStatus;
-        if(markeUUID != null){
-            Marke marke = DataHandler.readMarkeByUUID(markeUUID);
-            if (!markeUUID.isEmpty()){
-                DataHandler.deleteMarke(markeUUID);
-                DataHandler.updateMarke();
-                httpStatus = 200;
-            }else{
-                httpStatus = 404;
-            }
-        }else{
-            httpStatus = 404;
+        int httpStatus = 200;
+        if (!DataHandler.deleteMarke(markeUUID)){
+            httpStatus = 410;
         }
 
         return Response

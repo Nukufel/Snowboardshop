@@ -60,7 +60,6 @@ public class DataHandler {
      * @return list of snowboards
      */
     public static List<Snowboard> readAllSnowboards() {
-
         return getSnowboardList();
     }
 
@@ -166,7 +165,7 @@ public class DataHandler {
     private static List<Shop> getShopList() {
         if (shopList==null) {
             setShopList(new ArrayList<>());
-            readAllShops();
+            readShopJSON();
         }
         return shopList;
     }
@@ -188,7 +187,7 @@ public class DataHandler {
     private static List<Snowboard> getSnowboardList() {
         if (snowboardList==null) {
             setSnowboardList(new ArrayList<>());
-            readAllSnowboards();
+            readSnowboardJSON();
         }
         return snowboardList;
     }
@@ -210,7 +209,7 @@ public class DataHandler {
     public static List<Marke> getMarkeList() {
         if (markeList==null) {
             setMarkeList(new ArrayList<>());
-            readAllMarke();
+            readMarkeJSON();
         }
         return markeList; }
 
