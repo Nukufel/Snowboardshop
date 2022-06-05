@@ -4,6 +4,7 @@ import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -24,7 +25,7 @@ public class MarkeService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listMarke(@QueryParam("sort") String sort) {
+    public Response listMarke(@NotEmpty  @QueryParam("sort") String sort) {
         List<Marke> markeList = DataHandler.readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
@@ -51,7 +52,7 @@ public class MarkeService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response marke(@QueryParam("uuid") String markeUUID) {
+    public Response marke(@NotEmpty @QueryParam("uuid") String markeUUID) {
         if (markeUUID.isEmpty()) {
             return Response.status(400).build();
         }
@@ -91,7 +92,7 @@ public class MarkeService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteMarke(@QueryParam("uuid") String markeUUID) {
+    public Response deleteMarke(@NotEmpty @QueryParam("uuid") String markeUUID) {
         int httpStatus = 200;
         if (!DataHandler.deleteMarke(markeUUID)){
             httpStatus = 410;
@@ -108,7 +109,7 @@ public class MarkeService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createMarke(@FormParam("markeName")String markeName) {
+    public Response createMarke(@NotEmpty @FormParam("markeName")String markeName) {
         Marke marke = new Marke();
         marke.setMarkeName(markeName);
         marke.setMarkeUUID(UUID.randomUUID().toString());
@@ -127,7 +128,7 @@ public class MarkeService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke(@FormParam("markeUUID")String markeUUID,@FormParam("markeName")String markeName) {
+    public Response updateMarke(@NotEmpty @FormParam("markeUUID")String markeUUID, @FormParam("markeName")String markeName) {
         int httpStatus;
         if (markeUUID != null) {
             Marke marke = DataHandler.readMarkeByUUID(markeUUID);

@@ -5,6 +5,8 @@ import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Shop;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -25,7 +27,7 @@ public class ShopService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listShops(@QueryParam("sort") String sort ) {
+    public Response listShops(@NotEmpty @QueryParam("sort") String sort ) {
         List<Shop> shopList = DataHandler.readAllShops();
         List<Shop> cloned_shopList = new ArrayList<>(shopList);
         if (sort!=null && !sort.isEmpty()) {
@@ -54,7 +56,7 @@ public class ShopService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response shop(@QueryParam("uuid") String shopUUID) {
+    public Response shop(@NotEmpty @QueryParam("uuid") String shopUUID) {
         if (shopUUID.isEmpty()) {
             return Response.status(400).build();
         }
@@ -81,7 +83,7 @@ public class ShopService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteShop(@QueryParam("uuid") String shopUUID) {
+    public Response deleteShop(@NotEmpty  @QueryParam("uuid") String shopUUID) {
         int httpStatus = 200;
         if (!DataHandler.deleteShop(shopUUID)){
             httpStatus = 410;
@@ -95,14 +97,26 @@ public class ShopService {
 
     }
 
+    /**
+     *
+     * @param snowboardUUIDList
+     * @param shopPLZ
+     * @param shopAdresse
+     * @param shopTel
+     * @param shopName
+     * @return empty string
+     */
+
 
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createShop(
+            @NotEmpty
             @FormParam("snowboardUUIDList")List<String> snowboardUUIDList,
             @FormParam("shopPLZ")String shopPLZ ,
             @FormParam("shopAdresse")String shopAdresse ,
+            @Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
             @FormParam("shopTel")String shopTel ,
             @FormParam("shopName")String shopName)
     {
@@ -130,7 +144,7 @@ public class ShopService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke(@FormParam("snowboardUUIDList")List<String> snowboardUUIDList ,@FormParam("shopUUID")String shopUUID,@FormParam("shopPLZ")String shopPLZ ,@FormParam("shopAdresse")String shopAdresse ,@FormParam("shopTel")String shopTel ,@FormParam("shopName")String shopName) {
+    public Response updateMarke(@NotEmpty @FormParam("snowboardUUIDList")List<String> snowboardUUIDList ,@FormParam("shopUUID")String shopUUID,@FormParam("shopPLZ")String shopPLZ ,@FormParam("shopAdresse")String shopAdresse ,@FormParam("shopTel")String shopTel ,@FormParam("shopName")String shopName) {
         int httpStatus;
         if (shopUUID != null) {
             Shop shop = DataHandler.readShopByUUID(shopUUID);

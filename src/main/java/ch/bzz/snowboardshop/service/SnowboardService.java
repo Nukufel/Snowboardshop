@@ -3,6 +3,7 @@ package ch.bzz.snowboardshop.service;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,7 +24,7 @@ public class SnowboardService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSnowboards(@QueryParam("sort") String sort) {
+    public Response listSnowboards(@NotEmpty @QueryParam("sort") String sort) {
         List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
         List<Snowboard> cloned_snowboardList = new ArrayList<>(snowboardList);
         if (sort!=null && !sort.isEmpty()) {
@@ -53,7 +54,7 @@ public class SnowboardService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response snowboard(@QueryParam("uuid") String snowboardUUID) {
+    public Response snowboard(@NotEmpty @QueryParam("uuid") String snowboardUUID) {
         if (snowboardUUID.isEmpty()) {
             return Response.status(400).build();
         }
@@ -83,7 +84,7 @@ public class SnowboardService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteSnowboard(@QueryParam("uuid") String snowboardUUID) {
+    public Response deleteSnowboard(@NotEmpty @QueryParam("uuid") String snowboardUUID) {
         int httpStatus = 200;
             if (!DataHandler.deleteSnowboard(snowboardUUID)){
                 httpStatus = 410;
@@ -101,6 +102,7 @@ public class SnowboardService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createSnowboard(
+            @NotEmpty
             @FormParam("snowboardHight")Double snowboardHight,
             @FormParam("snowboardArt")String snowboardArt,
             @FormParam("snowboardPrice")Double snowboardPrice,
@@ -131,6 +133,7 @@ public class SnowboardService {
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateSnowboard(
+            @NotEmpty
             @FormParam("snowboardUUID")String snowboardUUID,
             @FormParam("snowboardHight")Double snowboardHight,
             @FormParam("snowboardArt")String snowboardArt,
