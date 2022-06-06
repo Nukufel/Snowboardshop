@@ -27,7 +27,7 @@ public class ShopService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listShops(@NotEmpty @QueryParam("sort") String sort ) {
+    public Response listShops(@QueryParam("sort") String sort ) {
         List<Shop> shopList = DataHandler.readAllShops();
         List<Shop> cloned_shopList = new ArrayList<>(shopList);
         if (sort!=null && !sort.isEmpty()) {

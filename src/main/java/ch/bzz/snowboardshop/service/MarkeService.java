@@ -25,7 +25,7 @@ public class MarkeService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listMarke(@NotEmpty  @QueryParam("sort") String sort) {
+    public Response listMarke(@QueryParam("sort") String sort) {
         List<Marke> markeList = DataHandler.readAllMarke();
         List<Marke> cloned_markeList = markeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {

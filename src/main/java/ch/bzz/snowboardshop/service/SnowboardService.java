@@ -24,7 +24,7 @@ public class SnowboardService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSnowboards(@NotEmpty @QueryParam("sort") String sort) {
+    public Response listSnowboards(@QueryParam("sort") String sort) {
         List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
         List<Snowboard> cloned_snowboardList = new ArrayList<>(snowboardList);
         if (sort!=null && !sort.isEmpty()) {
