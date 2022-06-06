@@ -138,20 +138,26 @@ public class SnowboardService {
     public Response updateSnowboard(
             @NotEmpty
             @FormParam("snowboardUUID")String snowboardUUID,
+            @NotEmpty
             @FormParam("snowboardHight")Double snowboardHight,
+            @NotEmpty
             @FormParam("snowboardArt")String snowboardArt,
+            @NotEmpty
             @FormParam("snowboardPrice")Double snowboardPrice,
+            @NotEmpty
             @FormParam("snowboardMarke")String snowboardMarke)
     {
         int httpStatus = 200;
+
         Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+
         if (snowboard != null) {
             snowboard.setSnowboardHight(snowboardHight);
             snowboard.setSnowboardArt(snowboardArt);
             snowboard.setSnowboardPrice(snowboardPrice);
             snowboard.setSnowboardMarke(snowboardMarke);
 
-            DataHandler.insertSnowboard(snowboard);
+            DataHandler.updateSnowboard();
         } else {
             httpStatus = 410;
         }

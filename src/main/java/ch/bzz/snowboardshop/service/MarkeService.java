@@ -134,7 +134,7 @@ public class MarkeService {
             Marke marke = DataHandler.readMarkeByUUID(markeUUID);
             if (!markeUUID.isEmpty()) {
                 marke.setMarkeName(markeName);
-                DataHandler.insertMarke(marke);
+                DataHandler.updateMarke();
                 httpStatus = 200;
             } else {
                 httpStatus = 404;

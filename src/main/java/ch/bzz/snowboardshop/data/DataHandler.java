@@ -369,4 +369,13 @@ public class DataHandler {
         getShopList().add(shop);
         writeShopJSON();
     }
+
+    /**
+     * sets all List null
+     */
+    public static void initList(){
+        setSnowboardList(null);
+        setMarkeList(null);
+        setShopList(null);
+    }
 }

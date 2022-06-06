@@ -154,7 +154,7 @@ public class ShopService {
                 shop.setShopAdresse(shopAdresse);
                 shop.setShopName(shopName);
                 shop.setSnowboardUUIDList(snowboardUUIDList);
-                DataHandler.insertShop(shop);
+                DataHandler.updateSnowboard();
                 httpStatus = 200;
             } else {
                 httpStatus = 404;
