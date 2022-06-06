@@ -1,7 +1,12 @@
 package ch.bzz.snowboardshop.model;
 
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 public class Marke {
     private String markeUUID;
+    @Size(min=1, max=100)
+    @FormParam("markeName")
     private String markeName;
 
     /**

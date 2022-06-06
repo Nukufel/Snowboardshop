@@ -4,7 +4,9 @@ import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -92,7 +94,7 @@ public class MarkeService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteMarke(@NotEmpty @QueryParam("uuid") String markeUUID) {
+    public Response deleteMarke(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String markeUUID) {
         int httpStatus = 200;
         if (!DataHandler.deleteMarke(markeUUID)){
             httpStatus = 410;
@@ -109,9 +111,8 @@ public class MarkeService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createMarke(@NotEmpty @FormParam("markeName")String markeName) {
-        Marke marke = new Marke();
-        marke.setMarkeName(markeName);
+    public Response createMarke(@Valid @BeanParam Marke marke) {
+
         marke.setMarkeUUID(UUID.randomUUID().toString());
         DataHandler.insertMarke(marke);
 
@@ -128,13 +129,16 @@ public class MarkeService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke(@NotEmpty @FormParam("markeUUID")String markeUUID, @FormParam("markeName")String markeName) {
+    public Response updateMarke(@Valid @BeanParam Marke marke,
+                                @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("markeUUID") String markeUUID) {
         int httpStatus;
         if (markeUUID != null) {
-            Marke marke = DataHandler.readMarkeByUUID(markeUUID);
+            Marke oldMarke = DataHandler.readMarkeByUUID(markeUUID);
             if (!markeUUID.isEmpty()) {
-                marke.setMarkeName(markeName);
+                oldMarke.setMarkeName(marke.getMarkeName());
+
                 DataHandler.updateMarke();
+
                 httpStatus = 200;
             } else {
                 httpStatus = 404;

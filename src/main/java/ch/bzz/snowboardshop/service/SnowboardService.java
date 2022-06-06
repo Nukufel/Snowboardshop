@@ -99,9 +99,7 @@ public class SnowboardService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createSnowboard(
-            @Valid @BeanParam Snowboard snowboard
-    ) {
+    public Response createSnowboard(@Valid @BeanParam Snowboard snowboard) {
         snowboard.setSnowboardUUID(UUID.randomUUID().toString());
 
         DataHandler.insertSnowboard(snowboard);
