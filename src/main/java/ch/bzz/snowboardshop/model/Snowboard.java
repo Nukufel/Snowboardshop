@@ -1,10 +1,26 @@
 package ch.bzz.snowboardshop.model;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 public class Snowboard {
     private String snowboardUUID;
+    @NotBlank
+    @Size(min=2, max=3)
+    @FormParam("snowboardHight")
     private Double snowboardHight;
+    @NotBlank
+    @Size(min=1, max=100)
+    @FormParam("snowboardArt")
     private String snowboardArt;
+    @NotBlank
+    @Size(min=1, max=10)
+    @FormParam("snowboardPrice")
     private Double snowboardPrice;
+    @Pattern(regexp = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
+    @FormParam("snowboardMarke")
     private String snowboardMarke;
 
     /**
