@@ -116,7 +116,8 @@ public class SnowboardService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateSnowboard(
             @Valid @BeanParam Snowboard snowboard,
-            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String snowboardUUID) {
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String snowboardUUID
+    ) {
         int httpStatus = 200;
 
         Snowboard oldSnowboard = DataHandler.readSnowboardByUUID(snowboardUUID);

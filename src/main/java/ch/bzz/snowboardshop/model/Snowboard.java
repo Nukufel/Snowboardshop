@@ -11,7 +11,6 @@ public class Snowboard {
     @Size(min=2, max=3)
     @FormParam("snowboardHight")
     private Double snowboardHight;
-    @NotBlank
     @Size(min=1, max=100)
     @FormParam("snowboardArt")
     private String snowboardArt;

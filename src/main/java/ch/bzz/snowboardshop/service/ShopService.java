@@ -5,6 +5,7 @@ import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Shop;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
@@ -83,7 +84,7 @@ public class ShopService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteShop(@NotEmpty  @QueryParam("uuid") String shopUUID) {
+    public Response deleteShop(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")  @QueryParam("uuid") String shopUUID) {
         int httpStatus = 200;
         if (!DataHandler.deleteShop(shopUUID)){
             httpStatus = 410;
@@ -98,12 +99,8 @@ public class ShopService {
     }
 
     /**
-     *
-     * @param snowboardUUIDList
-     * @param shopPLZ
-     * @param shopAdresse
-     * @param shopTel
-     * @param shopName
+     * creats a new shop
+     * @param shop
      * @return empty string
      */
 
@@ -111,22 +108,7 @@ public class ShopService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createShop(
-            @NotEmpty
-            @FormParam("snowboardUUIDList")List<String> snowboardUUIDList,
-            @FormParam("shopPLZ")String shopPLZ ,
-            @FormParam("shopAdresse")String shopAdresse ,
-            @Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
-            @FormParam("shopTel")String shopTel ,
-            @FormParam("shopName")String shopName)
-    {
-        Shop shop = new Shop();
-        shop.setShopAdresse(shopAdresse);
-        shop.setShopName(shopName);
-        shop.setShopPLZ(shopPLZ);
-        shop.setShopTel(shopTel);
-        shop.setSnowboardUUIDList(snowboardUUIDList);
-
+    public Response createShop(@Valid @BeanParam Shop shop) {
         shop.setShopUUID(UUID.randomUUID().toString());
 
         DataHandler.insertShop(shop);
@@ -144,16 +126,18 @@ public class ShopService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke(@NotEmpty @FormParam("snowboardUUIDList")List<String> snowboardUUIDList ,@NotEmpty @FormParam("shopUUID")String shopUUID,@NotEmpty @FormParam("shopPLZ")String shopPLZ ,@NotEmpty @FormParam("shopAdresse")String shopAdresse ,@NotEmpty @FormParam("shopTel")String shopTel ,@NotEmpty @FormParam("shopName")String shopName) {
+    public Response updateMarke( @Valid @BeanParam Shop shop,
+                                 @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String shopUUID
+    ) {
         int httpStatus;
         if (shopUUID != null) {
-            Shop shop = DataHandler.readShopByUUID(shopUUID);
+            Shop oldShop = DataHandler.readShopByUUID(shopUUID);
             if (!shopUUID.isEmpty()) {
-                shop.setShopTel(shopTel);
-                shop.setShopPLZ(shopPLZ);
-                shop.setShopAdresse(shopAdresse);
-                shop.setShopName(shopName);
-                shop.setSnowboardUUIDList(snowboardUUIDList);
+                oldShop.setShopTel(shop.getShopTel());
+                oldShop.setShopPLZ(shop.getShopPLZ());
+                oldShop.setShopAdresse(shop.getShopAdresse());
+                oldShop.setShopName(shop.getShopName());
+                oldShop.setSnowboardUUIDList(shop.getSnowboardUUIDList());
                 DataHandler.updateSnowboard();
                 httpStatus = 200;
             } else {

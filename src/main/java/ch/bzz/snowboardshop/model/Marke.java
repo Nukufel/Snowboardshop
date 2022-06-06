@@ -1,5 +1,6 @@
 package ch.bzz.snowboardshop.model;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
