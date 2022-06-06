@@ -104,8 +104,11 @@ public class SnowboardService {
     public Response createSnowboard(
             @NotEmpty
             @FormParam("snowboardHight")Double snowboardHight,
+            @NotEmpty
             @FormParam("snowboardArt")String snowboardArt,
+            @NotEmpty
             @FormParam("snowboardPrice")Double snowboardPrice,
+            @NotEmpty
             @FormParam("snowboardMarke")String snowboardMarke)
     {
         Snowboard snowboard = new Snowboard();

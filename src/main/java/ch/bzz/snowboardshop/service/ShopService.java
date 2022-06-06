@@ -144,7 +144,7 @@ public class ShopService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke(@NotEmpty @FormParam("snowboardUUIDList")List<String> snowboardUUIDList ,@FormParam("shopUUID")String shopUUID,@FormParam("shopPLZ")String shopPLZ ,@FormParam("shopAdresse")String shopAdresse ,@FormParam("shopTel")String shopTel ,@FormParam("shopName")String shopName) {
+    public Response updateMarke(@NotEmpty @FormParam("snowboardUUIDList")List<String> snowboardUUIDList ,@NotEmpty @FormParam("shopUUID")String shopUUID,@NotEmpty @FormParam("shopPLZ")String shopPLZ ,@NotEmpty @FormParam("shopAdresse")String shopAdresse ,@NotEmpty @FormParam("shopTel")String shopTel ,@NotEmpty @FormParam("shopName")String shopName) {
         int httpStatus;
         if (shopUUID != null) {
             Shop shop = DataHandler.readShopByUUID(shopUUID);
