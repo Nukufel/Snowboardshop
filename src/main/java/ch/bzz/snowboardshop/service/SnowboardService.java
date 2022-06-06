@@ -3,7 +3,10 @@ package ch.bzz.snowboardshop.service;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Snowboard;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,7 +20,6 @@ import java.util.stream.Collectors;
 public class SnowboardService {
 
     /**
-     *
      * @param sort
      * @return all items of Snowboards sorted or unsorted
      */
@@ -27,22 +29,22 @@ public class SnowboardService {
     public Response listSnowboards(@QueryParam("sort") String sort) {
         List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
         List<Snowboard> cloned_snowboardList = new ArrayList<>(snowboardList);
-        if (sort!=null && !sort.isEmpty()) {
-            if(sort.equals("hight")){
+        if (sort != null && !sort.isEmpty()) {
+            if (sort.equals("hight")) {
                 cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
-            }else if(sort.equals("price")){
+            } else if (sort.equals("price")) {
                 cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardPrice));
             }
             return Response
                     .status(200)
                     .entity(cloned_snowboardList)
                     .build();
-            }else {
+        } else {
             return Response
                     .status(200)
                     .entity(snowboardList)
                     .build();
-            }
+        }
 
     }
 
@@ -54,14 +56,14 @@ public class SnowboardService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response snowboard(@NotEmpty @QueryParam("uuid") String snowboardUUID) {
+    public Response snowboard(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String snowboardUUID) {
         if (snowboardUUID.isEmpty()) {
             return Response.status(400).build();
         }
 
         Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
 
-        if (snowboard==null) {
+        if (snowboard == null) {
             return Response.status(404).entity(snowboard).build();
         }
 
@@ -72,23 +74,19 @@ public class SnowboardService {
     }
 
 
-
-
-
-
-
     /**
      * daletes a snowboard by its uuid
-     * @return  empty String
+     *
+     * @return empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteSnowboard(@NotEmpty @QueryParam("uuid") String snowboardUUID) {
+    public Response deleteSnowboard(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String snowboardUUID) {
         int httpStatus = 200;
-            if (!DataHandler.deleteSnowboard(snowboardUUID)){
-                httpStatus = 410;
-            }
+        if (!DataHandler.deleteSnowboard(snowboardUUID)) {
+            httpStatus = 410;
+        }
 
         return Response
                 .status(httpStatus)
@@ -102,22 +100,8 @@ public class SnowboardService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createSnowboard(
-            @NotEmpty
-            @FormParam("snowboardHight")Double snowboardHight,
-            @NotEmpty
-            @FormParam("snowboardArt")String snowboardArt,
-            @NotEmpty
-            @FormParam("snowboardPrice")Double snowboardPrice,
-            @NotEmpty
-            @FormParam("snowboardMarke")String snowboardMarke)
-    {
-        Snowboard snowboard = new Snowboard();
-
-        snowboard.setSnowboardHight(snowboardHight);
-        snowboard.setSnowboardArt(snowboardArt);
-        snowboard.setSnowboardPrice(snowboardPrice);
-        snowboard.setSnowboardMarke(snowboardMarke);
-
+            @Valid @BeanParam Snowboard snowboard
+    ) {
         snowboard.setSnowboardUUID(UUID.randomUUID().toString());
 
         DataHandler.insertSnowboard(snowboard);
@@ -129,33 +113,21 @@ public class SnowboardService {
     }
 
 
-
-
-
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateSnowboard(
-            @NotEmpty
-            @FormParam("snowboardUUID")String snowboardUUID,
-            @NotEmpty
-            @FormParam("snowboardHight")Double snowboardHight,
-            @NotEmpty
-            @FormParam("snowboardArt")String snowboardArt,
-            @NotEmpty
-            @FormParam("snowboardPrice")Double snowboardPrice,
-            @NotEmpty
-            @FormParam("snowboardMarke")String snowboardMarke)
-    {
+            @Valid @BeanParam Snowboard snowboard,
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String snowboardUUID) {
         int httpStatus = 200;
 
-        Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+        Snowboard oldSnowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
 
-        if (snowboard != null) {
-            snowboard.setSnowboardHight(snowboardHight);
-            snowboard.setSnowboardArt(snowboardArt);
-            snowboard.setSnowboardPrice(snowboardPrice);
-            snowboard.setSnowboardMarke(snowboardMarke);
+        if (oldSnowboard != null) {
+            oldSnowboard.setSnowboardHight(snowboard.getSnowboardHight());
+            oldSnowboard.setSnowboardArt(snowboard.getSnowboardArt());
+            oldSnowboard.setSnowboardPrice(snowboard.getSnowboardPrice());
+            oldSnowboard.setSnowboardMarke(snowboard.getSnowboardMarke());
 
             DataHandler.updateSnowboard();
         } else {
@@ -168,7 +140,8 @@ public class SnowboardService {
                 .build();
 
 
-    }}
+    }
+}
 
 
 
