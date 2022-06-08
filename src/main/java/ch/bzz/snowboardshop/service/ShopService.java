@@ -58,10 +58,6 @@ public class ShopService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response shop(@NotEmpty @QueryParam("uuid") String shopUUID) {
-        if (shopUUID.isEmpty()) {
-            return Response.status(400).build();
-        }
-
         Shop shop = DataHandler.readShopByUUID(shopUUID);
 
         if (shop==null) {
@@ -126,23 +122,20 @@ public class ShopService {
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateMarke( @Valid @BeanParam Shop shop,
-                                 @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String shopUUID
+    public Response updateShop(
+            @Valid @BeanParam Shop shop,
+            @NotEmpty @FormParam("shopUUID") String shopUUID
     ) {
         int httpStatus;
-        if (shopUUID != null) {
-            Shop oldShop = DataHandler.readShopByUUID(shopUUID);
-            if (!shopUUID.isEmpty()) {
-                oldShop.setShopTel(shop.getShopTel());
-                oldShop.setShopPLZ(shop.getShopPLZ());
-                oldShop.setShopAdresse(shop.getShopAdresse());
-                oldShop.setShopName(shop.getShopName());
-                oldShop.setSnowboardUUIDList(shop.getSnowboardUUIDList());
-                DataHandler.updateSnowboard();
-                httpStatus = 200;
-            } else {
-                httpStatus = 404;
-            }
+        Shop oldShop = DataHandler.readShopByUUID(shopUUID);
+        if (oldShop!=null) {
+            oldShop.setShopTel(shop.getShopTel());
+            oldShop.setShopPLZ(shop.getShopPLZ());
+            oldShop.setShopAdresse(shop.getShopAdresse());
+            oldShop.setShopName(shop.getShopName());
+            oldShop.setSnowboardUUIDList(shop.getSnowboardUUIDList());
+            DataHandler.updateShop();
+            httpStatus = 200;
         } else {
             httpStatus = 404;
         }

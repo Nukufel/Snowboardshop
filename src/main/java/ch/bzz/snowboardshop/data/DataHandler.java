@@ -302,7 +302,7 @@ public class DataHandler {
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String shopPath = Config.getProperty("shopPath");
+        String shopPath = Config.getProperty("shopJSON");
         try {
             fileOutputStream = new FileOutputStream(shopPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
@@ -354,17 +354,27 @@ public class DataHandler {
         writeMarkeJSON();
     }
 
-
+    /**
+     * Inserts a snowboard Object in the snowboardList and in the snowboard.json File
+     * @param snowboard
+     */
     public static void insertSnowboard(Snowboard snowboard) {
         getSnowboardList().add(snowboard);
         writeSnowboardJSON();
     }
-
+    /**
+     * Inserts a marke Object in the markeList and in the marke.json File
+     * @param marke
+     */
     public static void insertMarke(Marke marke) {
         getMarkeList().add(marke);
         writeMarkeJSON();
     }
 
+    /**
+     * Inserts a shop Object in the shopList and in the shop.json File
+     * @param shop
+     */
     public static void insertShop(Shop shop) {
         getShopList().add(shop);
         writeShopJSON();
