@@ -114,6 +114,7 @@ public class MarkeService {
     public Response createMarke(@Valid @BeanParam Marke marke) {
 
         marke.setMarkeUUID(UUID.randomUUID().toString());
+
         DataHandler.insertMarke(marke);
 
         return Response
