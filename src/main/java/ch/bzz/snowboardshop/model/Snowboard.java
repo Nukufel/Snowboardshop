@@ -5,17 +5,25 @@ import javax.ws.rs.FormParam;
 
 public class Snowboard {
     private String snowboardUUID;
+
+    @NotNull
     @DecimalMax(value = "300")
     @DecimalMin(value = "50")
     @FormParam("snowboardHight")
     private Double snowboardHight;
+
+    @NotNull
     @Size(min=1, max=100)
     @FormParam("snowboardArt")
     private String snowboardArt;
+
+    @NotNull
     @DecimalMax(value = "10000")
     @DecimalMin(value = "1")
     @FormParam("snowboardPrice")
     private Double snowboardPrice;
+
+    @NotNull
     @Pattern(regexp = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
     @FormParam("snowboardMarke")
     private String snowboardMarke;

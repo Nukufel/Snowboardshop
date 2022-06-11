@@ -57,7 +57,7 @@ public class ShopService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response shop(@NotEmpty @QueryParam("uuid") String shopUUID) {
+    public Response shop(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String shopUUID) {
         Shop shop = DataHandler.readShopByUUID(shopUUID);
 
         if (shop==null) {
@@ -124,7 +124,9 @@ public class ShopService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateShop(
             @Valid @BeanParam Shop shop,
-            @NotEmpty @FormParam("shopUUID") String shopUUID
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+            @FormParam("shopUUID") String shopUUID
     ) {
         int httpStatus;
         Shop oldShop = DataHandler.readShopByUUID(shopUUID);

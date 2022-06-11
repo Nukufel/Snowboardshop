@@ -56,7 +56,7 @@ public class SnowboardService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response snowboard(@NotEmpty @QueryParam("uuid") String snowboardUUID) {
+    public Response snowboard(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String snowboardUUID) {
 
         Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
 

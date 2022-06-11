@@ -54,7 +54,7 @@ public class MarkeService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response marke(@NotEmpty @QueryParam("uuid") String markeUUID) {
+    public Response marke(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String markeUUID) {
         if (markeUUID.isEmpty()) {
             return Response.status(400).build();
         }
@@ -94,7 +94,7 @@ public class MarkeService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteMarke(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String markeUUID) {
+    public Response deleteMarke(@Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String markeUUID) {
         int httpStatus = 200;
         if (!DataHandler.deleteMarke(markeUUID)){
             httpStatus = 410;

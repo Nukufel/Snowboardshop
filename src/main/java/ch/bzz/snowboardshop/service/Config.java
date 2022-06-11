@@ -1,5 +1,7 @@
 package ch.bzz.snowboardshop.service;
 
+import ch.bzz.snowboardshop.exception.MyExceptionMapper;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -30,6 +32,7 @@ public class Config extends Application {
         providers.add(MarkeService.class);
         providers.add(ShopService.class);
         providers.add(SnowboardService.class);
+        providers.add(MyExceptionMapper.class);
         return providers;
     }
     /**
