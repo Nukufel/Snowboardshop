@@ -1,5 +1,7 @@
 package ch.bzz.snowboardshop.model;
 
+import ch.bzz.snowboardshop.annotation.UniqueListUUID;
+
 import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 import java.util.ArrayList;
@@ -28,11 +30,14 @@ public class Shop {
     @FormParam("shopPLZ")
     private String shopPLZ;
 
+
+    private List<String> snowboardUUIDList = new ArrayList<>();
+/*
     @FormParam("snowboardUUIDList")
-    private List<
-            @NotNull
-            @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String
-            > snowboardUUIDList = new ArrayList<>();
+    @NotNull
+    @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+ */
+
 
     /**
      * gets snowboardUUID

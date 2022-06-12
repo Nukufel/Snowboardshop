@@ -1,5 +1,6 @@
 package ch.bzz.snowboardshop.service;
 
+import ch.bzz.snowboardshop.annotation.UniqueListUUID;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Shop;
@@ -7,6 +8,7 @@ import ch.bzz.snowboardshop.model.Snowboard;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -104,7 +106,14 @@ public class ShopService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createShop(@Valid @BeanParam Shop shop) {
+    public Response createShop(
+            @Valid @BeanParam Shop shop,
+            @UniqueListUUID
+            @NotNull
+            @FormParam("snowboardUUIDList") List< @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList
+
+    ) {
+        shop.setSnowboardUUIDList(snowboardUUIDList);
         shop.setShopUUID(UUID.randomUUID().toString());
 
         DataHandler.insertShop(shop);
@@ -126,7 +135,12 @@ public class ShopService {
             @Valid @BeanParam Shop shop,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
-            @FormParam("shopUUID") String shopUUID
+            @FormParam("shopUUID") String shopUUID,
+
+            @UniqueListUUID
+            @NotNull
+            @FormParam("snowboardUUIDList") List< @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList
+
     ) {
         int httpStatus;
         Shop oldShop = DataHandler.readShopByUUID(shopUUID);
@@ -135,7 +149,7 @@ public class ShopService {
             oldShop.setShopPLZ(shop.getShopPLZ());
             oldShop.setShopAdresse(shop.getShopAdresse());
             oldShop.setShopName(shop.getShopName());
-            oldShop.setSnowboardUUIDList(shop.getSnowboardUUIDList());
+            oldShop.setSnowboardUUIDList(snowboardUUIDList);
             DataHandler.updateShop();
             httpStatus = 200;
         } else {

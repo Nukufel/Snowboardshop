@@ -1,6 +1,6 @@
 package ch.bzz.snowboardshop.service;
 
-import ch.bzz.snowboardshop.exception.MyExceptionMapper;
+import ch.bzz.snowboardshop.exception.BadExceptionMapper;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -32,7 +32,7 @@ public class Config extends Application {
         providers.add(MarkeService.class);
         providers.add(ShopService.class);
         providers.add(SnowboardService.class);
-        providers.add(MyExceptionMapper.class);
+        providers.add(BadExceptionMapper.class);
         return providers;
     }
     /**
