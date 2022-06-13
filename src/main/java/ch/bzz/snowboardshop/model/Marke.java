@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
+/**
+ * Modelclass Marke
+ * @author Niklas Vogel (Nukufel)
+ * @version 1.2
+ * @since 20220613
+ */
 public class Marke {
     private String markeUUID;
 

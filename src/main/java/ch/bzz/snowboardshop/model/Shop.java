@@ -7,6 +7,12 @@ import javax.ws.rs.FormParam;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Modelclass Shop
+ * @author Niklas Vogel (Nukufel)
+ * @version 1.2
+ * @since 20220613
+ */
 public class Shop {
     private String shopUUID;
 

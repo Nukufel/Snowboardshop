@@ -16,6 +16,12 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Services for Snowboard
+ * @author Niklas Vogel (Nukufel)
+ * @version 1.2
+ * @since 20220613
+ */
 @Path("snowboard")
 public class SnowboardService {
 

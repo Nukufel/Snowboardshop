@@ -3,6 +3,12 @@ package ch.bzz.snowboardshop.model;
 import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 
+/**
+ * Modelclass Snowboard
+ * @author Niklas Vogel (Nukufel)
+ * @version 1.2
+ * @since 20220613
+ */
 public class Snowboard {
     private String snowboardUUID;
 

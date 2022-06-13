@@ -6,6 +6,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * text message for exceptions
+ */
 @Provider
 public class BadExceptionMapper
                implements ExceptionMapper<ConstraintViolationException> {
@@ -17,6 +20,7 @@ public class BadExceptionMapper
                      .type("text/plain")
                      .build();
   }
+
 
   private String prepareMessage(ConstraintViolationException exception) {
       String msg = "";

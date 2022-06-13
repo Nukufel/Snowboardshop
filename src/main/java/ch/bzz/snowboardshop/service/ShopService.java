@@ -19,6 +19,12 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Services for Shop
+ * @author Niklas Vogel (Nukufel)
+ * @version 1.2
+ * @since 20220613
+ */
 @Path("shop")
 public class ShopService {
 
