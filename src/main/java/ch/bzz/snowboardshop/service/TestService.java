@@ -29,6 +29,10 @@ public class TestService {
                 .build();
     }
 
+    /**
+     * takes the fils out of the update folder an replaces the once in the data folder
+     * @return empty string
+     */
     @GET
     @Path("restore")
     @Produces(MediaType.TEXT_PLAIN)

@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 public class ShopService {
 
     /**
-     *
-     * @param sort
+     *sorts the all shops after sort param
+     * @param sort string for sorting
      * @return all items of Shop sorted or unsorted
      */
     @GET
@@ -53,7 +53,7 @@ public class ShopService {
 
     /**
      * reads an item by its UUID
-     *
+     * @param shopUUID ID of the object
      * @return object of shop
      */
     @GET
@@ -98,11 +98,9 @@ public class ShopService {
 
     /**
      * creats a new shop
-     * @param shop
+     * @param shop beanparam: has all atributs of class shop
      * @return empty string
      */
-
-
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -125,8 +123,13 @@ public class ShopService {
     }
 
 
-
-
+    /**
+     * updates a shop
+     * @param shop beanparam: has all atributs of class shop
+     * @param shopUUID the shop that is going to be updated
+     * @param snowboardUUIDList not in beanparam for validation
+     * @return empty string
+     */
 
     @PUT
     @Path("update")

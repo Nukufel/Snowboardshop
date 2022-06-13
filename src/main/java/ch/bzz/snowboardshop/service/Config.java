@@ -14,7 +14,6 @@ import java.util.Set;
 /**
  * configure the web services and properties
  */
-
 @ApplicationPath("/resource")
 
 public class Config extends Application {

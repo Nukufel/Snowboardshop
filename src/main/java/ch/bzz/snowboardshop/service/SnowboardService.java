@@ -20,7 +20,8 @@ import java.util.stream.Collectors;
 public class SnowboardService {
 
     /**
-     * @param sort
+     * list all items sorted or unsorted
+     * @param sort string for sorting
      * @return all items of Snowboards sorted or unsorted
      */
     @GET
@@ -48,9 +49,10 @@ public class SnowboardService {
 
     }
 
+
     /**
      * reads an item by its UUID
-     *
+     * @param snowboardUUID ID of the snowboard object
      * @return object of snowboard
      */
     @GET
@@ -71,9 +73,10 @@ public class SnowboardService {
     }
 
 
+
     /**
      * daletes a snowboard by its uuid
-     *
+     * @param snowboardUUID  the snowboard that is going to be deleted
      * @return empty String
      */
     @DELETE
@@ -93,6 +96,11 @@ public class SnowboardService {
 
     }
 
+    /**
+     * creates a snowboard
+     * @param snowboard beanparam: has all atributs of class Snowboard
+     * @return empty string
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -107,7 +115,12 @@ public class SnowboardService {
                 .build();
     }
 
-
+    /**
+     * updates a snowboard by it's uuid
+     * @param snowboard beanparam: has all atributs of class Snowboard
+     * @param snowboardUUID the snowboard that is going to be updated
+     * @return empty string
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)

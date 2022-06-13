@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 public class MarkeService {
 
     /**
-     *
-     * @param sort
+     *lsits all objects sorted or unsorted
+     * @param sort string for sorting
      * @return all items of Marke sorted or unsorted
      */
     @GET
@@ -48,7 +48,7 @@ public class MarkeService {
 
     /**
      * reads an item by its UUID
-     *
+     * @param markeUUID ID of the object
      * @return object of marke
      */
     @GET
@@ -72,7 +72,8 @@ public class MarkeService {
     }
 
     /**
-     * @return all itmes of Marke sorted by alphabet
+     * sorts brand objects by name
+     * @return all itmes of Brand sorted by alphabet
      */
     @GET
     @Path("listsortname")
@@ -87,9 +88,11 @@ public class MarkeService {
                 .build();
     }
 
+
     /**
-     * daletes a snowboard by its uuid
-     * @return  empty String
+     * daletes a Brand by its uuid
+     * @param markeUUID ID of the brand that is going to be deleted
+     * @return empty string
      */
     @DELETE
     @Path("delete")
@@ -108,6 +111,11 @@ public class MarkeService {
 
     }
 
+    /**
+     * creats a new Brand
+     * @param marke beanparam: has all atributs of class brand
+     * @return emty string
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -124,9 +132,12 @@ public class MarkeService {
     }
 
 
-
-
-
+    /**
+     *
+     * @param marke beanparam: has all atributs of class brand
+     * @param markeUUID the brand that is going to be updated
+     * @return
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.APPLICATION_JSON)
