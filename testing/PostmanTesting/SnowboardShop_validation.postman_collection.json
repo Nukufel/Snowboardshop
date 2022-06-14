@@ -1,0 +1,6889 @@
+{
+	"info": {
+		"_postman_id": "5dbe5a91-30b4-40b9-8a72-2bff21809031",
+		"name": "SnowboardShop_validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "restore Copy",
+			"item": [
+				{
+					"name": "restore",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/test/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"test",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Snowboard read ",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=16391558-14b4-4070-9fc1-de9a62146e5c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "16391558-14b4-4070-9fc1-de9a62146e5c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Snowboard delete",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/delete?uuid=297a9da1-e3b1-412f-af38-0b4c976e440b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "297a9da1-e3b1-412f-af38-0b4c976e440b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/delete?uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/delete?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marke read",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marke delete",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/delete?uuid=1a808431-1101-42b9-9657-8ff947523c1a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "1a808431-1101-42b9-9657-8ff947523c1a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/delete?uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "markeUUID",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "uuid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/delete?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shop read",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shop delete",
+			"item": [
+				{
+					"name": "read valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/delete?uuid=bcf83eea-3868-48cb-a8ed-d5b898b875c5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "bcf83eea-3868-48cb-a8ed-d5b898b875c5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/delete?uuid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/delete?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marke create",
+			"item": [
+				{
+					"name": "name null",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name >100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii1t26t3zg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name happy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "afdafs",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marke update",
+			"item": [
+				{
+					"name": "uuid empty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeUUID",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "markeName",
+									"value": "abcdef",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uuid valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeUUID",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"type": "text"
+								},
+								{
+									"key": "markeName",
+									"value": "abcdef",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uuid fals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "abc",
+									"type": "text"
+								},
+								{
+									"key": "markeUUID",
+									"value": "snajkfnajsdkfnasf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name null",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "markeUUID",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name >100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii1t26t3zg",
+									"type": "text"
+								},
+								{
+									"key": "markeUUID",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "name happy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "afdafs",
+									"type": "text"
+								},
+								{
+									"key": "markeUUID",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shop create",
+			"item": [
+				{
+					"name": "name",
+					"item": [
+						{
+							"name": "name happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "name <100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "CreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreate",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "name null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "plz",
+					"item": [
+						{
+							"name": "plz happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "plz null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "plz > 15",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "80758075807580758075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardUUIDList",
+					"item": [
+						{
+							"name": "uuid happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-890",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid same",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "adresse",
+					"item": [
+						{
+							"name": "adresse happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adresse > 100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "AdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adresse null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tel nummer",
+					"item": [
+						{
+							"name": "tel happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "079361441A",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel short",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "07",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "079361879879657479868897",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"create"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Shop update",
+			"item": [
+				{
+					"name": "name",
+					"item": [
+						{
+							"name": "name happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "name >100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "CreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreateCreatendsjkafnjsdfkjdnsfkdsjmakdnfjsfnsdfsdjfsdfdfsdklsjlajsdöfhdskajhfkhsdkflsak",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "name <1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "uuid",
+					"item": [
+						{
+							"name": "uuid happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "abced",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "dkaflkdsfasdfsd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "nbjhbhbjhb",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "plz",
+					"item": [
+						{
+							"name": "plz happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "plz null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "markeName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "plz<15",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "80758075807580758075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardUUIDList",
+					"item": [
+						{
+							"name": "uuid happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-890",
+											"type": "text"
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid same",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "adresse",
+					"item": [
+						{
+							"name": "adresse happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adresse <100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "AdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresseAdresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "adresse null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tel nummer",
+					"item": [
+						{
+							"name": "tel happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "079361441A",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel short",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "07",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tel long",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "shopName",
+											"value": "Create",
+											"type": "text"
+										},
+										{
+											"key": "shopPLZ",
+											"value": "8075",
+											"type": "text"
+										},
+										{
+											"key": "shopTel",
+											"value": "079361879879657479868897",
+											"type": "text"
+										},
+										{
+											"key": "shopAdresse",
+											"value": "Adresse",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUIDList",
+											"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "shopUUID",
+											"value": "21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"shop",
+										"update"
+									],
+									"query": [
+										{
+											"key": "shopAdresse",
+											"value": "Strasse",
+											"disabled": true
+										},
+										{
+											"key": "shopName",
+											"value": "Name",
+											"disabled": true
+										},
+										{
+											"key": "shopPLZ",
+											"value": "9030",
+											"disabled": true
+										},
+										{
+											"key": "shopTel",
+											"value": "0793614416",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Snowboard create",
+			"item": [
+				{
+					"name": "snowboardHight",
+					"item": [
+						{
+							"name": "hight happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight > 300",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "500",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight < 50",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardArt",
+					"item": [
+						{
+							"name": "art happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "art > 100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "LöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnn",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "art null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardMarke",
+					"item": [
+						{
+							"name": "marke happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "marke null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "marke > 100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardPrice",
+					"item": [
+						{
+							"name": "price happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price > 10000",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "30000.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price < 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "0.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Snowboard update",
+			"item": [
+				{
+					"name": "snowboardHight",
+					"item": [
+						{
+							"name": "hight happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight > 300",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "500",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight < 50",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hight null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardArt",
+					"item": [
+						{
+							"name": "art happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "art > 100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "LöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnnLöschennnn",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "art null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardMarke",
+					"item": [
+						{
+							"name": "marke happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "marke null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "marke > 100",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardPrice",
+					"item": [
+						{
+							"name": "price happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price > 10000",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "30000.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price < 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "0.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "price null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "snowboardUUID",
+					"item": [
+						{
+							"name": "uuid happy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a62146e5c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid false",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "300.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "16391558-14b4-4070-9fc1-de9a6214",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uuid null",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"response is as expected\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "snowboardHight",
+											"value": "150",
+											"type": "text"
+										},
+										{
+											"key": "snowboardArt",
+											"value": "Löschen",
+											"type": "text"
+										},
+										{
+											"key": "snowboardPrice",
+											"value": "56.00",
+											"type": "text"
+										},
+										{
+											"key": "snowboardMarke",
+											"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+											"type": "text"
+										},
+										{
+											"key": "snowboardUUID",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"Snowboardshop-1.0",
+										"resource",
+										"snowboard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

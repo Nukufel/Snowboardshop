@@ -1,23 +1,25 @@
-﻿[
-    {
-        "snowboardUUID": "23ceb54c-bef4-4533-8907-e43149bec8e9",
-        "snowboardHight": "150",
-        "snowboardArt": "All-Mountain",
-        "snowboardPrice": "509.50",
-        "snowboardMarke": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
-    },
-    {
-        "snowboardUUID": "16391558-14b4-4070-9fc1-de9a62146e5c",
-        "snowboardHight": "160",
-        "snowboardArt": "Freeride",
-        "snowboardPrice": "406.00",
-        "snowboardMarke": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
-    },
-    {
-        "snowboardUUID": "297a9da1-e3b1-412f-af38-0b4c976e440b",
-        "snowboardHight": "140",
-        "snowboardArt": "Freestyle",
-        "snowboardPrice": "637.75",
-        "snowboardMarke": "1a808431-1101-42b9-9657-8ff947523c1a"
-    }
-]
+[ {
+  "snowboardUUID" : "16391558-14b4-4070-9fc1-de9a62146e5c",
+  "snowboardHight" : 160.0,
+  "snowboardArt" : "Freeride",
+  "snowboardPrice" : 406.0,
+  "snowboardMarke" : "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a"
+}, {
+  "snowboardUUID" : "573b748a-06d8-4834-82a1-2a9558383a9a",
+  "snowboardHight" : 155.0,
+  "snowboardArt" : "Niki3",
+  "snowboardPrice" : 270.0,
+  "snowboardMarke" : "1a808431-1101-42b9-9657-8ff947523c1b"
+}, {
+  "snowboardUUID" : "8d686994-0480-470c-9ba9-c1912c909717",
+  "snowboardHight" : 150.0,
+  "snowboardArt" : "Niki2",
+  "snowboardPrice" : 340.0,
+  "snowboardMarke" : "1a808431-1101-42b9-9657-8ff947523c1b"
+}, {
+  "snowboardUUID" : "297a9da1-e3b1-412f-af38-0b4c976e440b",
+  "snowboardHight" : 170.0,
+  "snowboardArt" : "Niki1",
+  "snowboardPrice" : 305.0,
+  "snowboardMarke" : "1a808431-1101-42b9-9657-8ff947523c1b"
+}]

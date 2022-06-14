@@ -6,578 +6,1116 @@
 	},
 	"item": [
 		{
-			"name": "0.1 Testservice",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/test/test",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"test",
-						"test"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShopList",
-			"event": [
+			"name": "restore",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"shop",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShopList sort name",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/list?sort=name",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"shop",
-						"list"
-					],
-					"query": [
-						{
-							"key": "sort",
-							"value": "name"
+					"name": "restore",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/test/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"test",
+								"restore"
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "ShopList sort snowboards",
-			"event": [
+			"name": "Shop",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/list?sort=snowboards",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"shop",
-						"list"
-					],
-					"query": [
+					"name": "ShopList",
+					"event": [
 						{
-							"key": "sort",
-							"value": "snowboards"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShopUUID false",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=23",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"shop",
-						"read"
-					],
-					"query": [
+					"name": "ShopUUID false",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "23"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ShopUUID NULL",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"shop",
-						"read"
-					],
-					"query": [
+					"name": "ShopList sort name",
+					"event": [
 						{
-							"key": "uuid",
-							"value": ""
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SnowboardList",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/list?sort=name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"snowboard",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SnowboardList sort hight",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/list?sort=hight",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"snowboard",
-						"list"
-					],
-					"query": [
+					"name": "ShopList sort snowboards",
+					"event": [
 						{
-							"key": "sort",
-							"value": "hight"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SnowboardList sort price",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/shop/list?sort=snowboards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "snowboards"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/list?sort=price",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"snowboard",
-						"list"
-					],
-					"query": [
+					"name": "ShopUUID NULL",
+					"event": [
 						{
-							"key": "sort",
-							"value": "price"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SnowboardUUID false",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=23",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"snowboard",
-						"read"
-					],
-					"query": [
+					"name": "ShopUpdate",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "23"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SnowboardUUID NULL ",
-			"event": [
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "shopName",
+									"value": "Update",
+									"type": "text"
+								},
+								{
+									"key": "shopUUID",
+									"value": "aca2c2a0-c447-42e0-ba39-8424b3382315",
+									"type": "text"
+								},
+								{
+									"key": "shopTel",
+									"value": "0793614418",
+									"type": "text"
+								},
+								{
+									"key": "shopAdresse",
+									"value": "Adresse",
+									"type": "text"
+								},
+								{
+									"key": "shopPLZ",
+									"value": "8057",
+									"type": "text"
+								},
+								{
+									"key": "snowboardUUIDList",
+									"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"snowboard",
-						"read"
-					],
-					"query": [
+					"name": "ShopDelete",
+					"event": [
 						{
-							"key": "uuid",
-							"value": ""
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "MarkeList",
-			"event": [
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/delete?uuid=bcf83eea-3868-48cb-a8ed-d5b898b875c5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "bcf83eea-3868-48cb-a8ed-d5b898b875c5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"marke",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "MarkeList sort name",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/list?sort=name",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"marke",
-						"list"
-					],
-					"query": [
+					"name": "ShopCreate",
+					"event": [
 						{
-							"key": "sort",
-							"value": "name"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "shopName",
+									"value": "Create",
+									"type": "text"
+								},
+								{
+									"key": "shopPLZ",
+									"value": "8075",
+									"type": "text"
+								},
+								{
+									"key": "shopTel",
+									"value": "0793614416",
+									"type": "text"
+								},
+								{
+									"key": "shopAdresse",
+									"value": "Adresse",
+									"type": "text"
+								},
+								{
+									"key": "snowboardUUIDList",
+									"value": "23ceb54c-bef4-4533-8907-e43149bec8e9",
+									"type": "text"
+								},
+								{
+									"key": "snowboardUUIDList",
+									"value": "23ceb54c-bef4-4533-8907-e43149bec8e8",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/shop/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"shop",
+								"create"
+							],
+							"query": [
+								{
+									"key": "shopAdresse",
+									"value": "Strasse",
+									"disabled": true
+								},
+								{
+									"key": "shopName",
+									"value": "Name",
+									"disabled": true
+								},
+								{
+									"key": "shopPLZ",
+									"value": "9030",
+									"disabled": true
+								},
+								{
+									"key": "shopTel",
+									"value": "0793614416",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.1 Testservice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/test/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"test",
+								"test"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "MarkeUUID false",
-			"event": [
+			"name": "Snowboard",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=23",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"marke",
-						"read"
-					],
-					"query": [
+					"name": "SnowboardList",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "23"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardList sort hight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/list?sort=hight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "hight"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardList sort price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/list?sort=price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardUUID false",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardUUID NULL ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/read?uuid=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardDelete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/delete?uuid=297a9da1-e3b1-412f-af38-0b4c976e440b",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "297a9da1-e3b1-412f-af38-0b4c976e440b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "snowboardHight",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "snowboardArt",
+									"value": "Update",
+									"type": "text"
+								},
+								{
+									"key": "snowboardPrice",
+									"value": "300.00",
+									"type": "text"
+								},
+								{
+									"key": "snowboardMarke",
+									"value": "dcf88197-4c2a-41b6-9d38-939ecca2f283",
+									"type": "text"
+								},
+								{
+									"key": "snowboardUUID",
+									"value": "573b748a-06d8-4834-82a1-2a9558383a9a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SnowboardCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "snowboardHight",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "snowboardArt",
+									"value": "Löschen",
+									"type": "text"
+								},
+								{
+									"key": "snowboardPrice",
+									"value": "300.00",
+									"type": "text"
+								},
+								{
+									"key": "snowboardMarke",
+									"value": "1a808431-1101-42b9-9657-8ff947523c1b",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/snowboard/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"snowboard",
+								"create"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "MarkeUUID NULL",
-			"event": [
+			"name": "Marke",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"response is as expected\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Snowboardshop-1.0",
-						"resource",
-						"marke",
-						"read"
-					],
-					"query": [
+					"name": "MarkeList",
+					"event": [
 						{
-							"key": "uuid",
-							"value": ""
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeList sort name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/list?sort=name",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"list"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeUUID false",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeUUID NULL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/read?uuid=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "Löschen1",
+									"type": "text"
+								},
+								{
+									"key": "markeUUID",
+									"value": "8ddd706d-792d-4903-b4c7-5ebc06bf0d4a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeCreate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "markeName",
+									"value": "Löschen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MarkeDelete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response is as expected\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/Snowboardshop-1.0/resource/marke/delete?uuid=1a808431-1101-42b9-9657-8ff947523c1a",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Snowboardshop-1.0",
+								"resource",
+								"marke",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "1a808431-1101-42b9-9657-8ff947523c1a"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
