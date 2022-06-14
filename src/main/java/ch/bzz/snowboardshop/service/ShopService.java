@@ -5,6 +5,7 @@ import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Shop;
 import ch.bzz.snowboardshop.model.Snowboard;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
