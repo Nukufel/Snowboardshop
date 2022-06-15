@@ -388,4 +388,6 @@ public class DataHandler {
         setMarkeList(null);
         setShopList(null);
     }
+
+
 }

@@ -32,6 +32,7 @@ public class Config extends Application {
         providers.add(ShopService.class);
         providers.add(SnowboardService.class);
         providers.add(BadExceptionMapper.class);
+        providers.add(UserService.class);
         return providers;
     }
     /**
