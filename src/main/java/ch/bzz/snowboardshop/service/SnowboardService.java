@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 /**
  * Services for Snowboard
+ *
  * @author Niklas Vogel (Nukufel)
  * @version 1.2
  * @since 20220613
@@ -27,71 +28,96 @@ public class SnowboardService {
 
     /**
      * list all items sorted or unsorted
+     *
      * @param sort string for sorting
      * @return all items of Snowboards sorted or unsorted
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSnowboards(@QueryParam("sort") String sort) {
-        List<Snowboard> snowboardList = DataHandler.readAllSnowboards();
-        List<Snowboard> cloned_snowboardList = new ArrayList<>(snowboardList);
-        if (sort != null && !sort.isEmpty()) {
-            if (sort.equals("hight")) {
-                cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
-            } else if (sort.equals("price")) {
-                cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardPrice));
-            }
-            return Response
-                    .status(200)
-                    .entity(cloned_snowboardList)
-                    .build();
-        } else {
-            return Response
-                    .status(200)
-                    .entity(snowboardList)
-                    .build();
-        }
+    public Response listSnowboards(@QueryParam("sort") String sort, @CookieParam("userRole") String userRole) {
+        int httpStatus = 200;
 
+        List<Snowboard> snowboardList;
+        List<Snowboard> cloned_snowboardList = null;
+        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            snowboardList = DataHandler.readAllSnowboards();
+            cloned_snowboardList = new ArrayList<>(snowboardList);
+            if (sort != null && !sort.isEmpty()) {
+                if (sort.equals("hight")) {
+                    cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardHight));
+                } else if (sort.equals("price")) {
+                    cloned_snowboardList.sort(Comparator.comparing(Snowboard::getSnowboardPrice));
+                }
+            }
+        }
+        return Response
+                .status(httpStatus)
+                .entity(cloned_snowboardList)
+                .build();
     }
 
 
     /**
      * reads an item by its UUID
+     *
      * @param snowboardUUID ID of the snowboard object
      * @return object of snowboard
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response snowboard(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String snowboardUUID) {
+    public Response snowboard(
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String snowboardUUID,
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 200;
 
-        Snowboard snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+        Snowboard snowboard = null;
 
-        if (snowboard == null) {
-            return Response.status(404).entity(snowboard).build();
+        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+
+            snowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+            if (snowboard == null) {
+                httpStatus = 404;
+            }
+
         }
 
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(snowboard)
                 .build();
     }
 
 
-
     /**
      * daletes a snowboard by its uuid
-     * @param snowboardUUID  the snowboard that is going to be deleted
+     *
+     * @param snowboardUUID the snowboard that is going to be deleted
      * @return empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteSnowboard(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String snowboardUUID) {
+    public Response deleteSnowboard(
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String snowboardUUID,
+            @CookieParam("userRole") String userRole
+    ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteSnowboard(snowboardUUID)) {
-            httpStatus = 410;
+
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteSnowboard(snowboardUUID)) {
+                httpStatus = 410;
+            }
         }
 
         return Response
@@ -104,26 +130,34 @@ public class SnowboardService {
 
     /**
      * creates a snowboard
+     *
      * @param snowboard beanparam: has all atributs of class Snowboard
      * @return empty string
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createSnowboard(@Valid @BeanParam Snowboard snowboard) {
-        snowboard.setSnowboardUUID(UUID.randomUUID().toString());
-
-        DataHandler.insertSnowboard(snowboard);
-
+    public Response createSnowboard(
+            @Valid @BeanParam Snowboard snowboard,
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            snowboard.setSnowboardUUID(UUID.randomUUID().toString());
+            DataHandler.insertSnowboard(snowboard);
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
 
     /**
      * updates a snowboard by it's uuid
-     * @param snowboard beanparam: has all atributs of class Snowboard
+     *
+     * @param snowboard     beanparam: has all atributs of class Snowboard
      * @param snowboardUUID the snowboard that is going to be updated
      * @return empty string
      */
@@ -132,21 +166,27 @@ public class SnowboardService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateSnowboard(
             @Valid @BeanParam Snowboard snowboard,
-            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String snowboardUUID
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @FormParam("snowboardUUID") String snowboardUUID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
 
-        Snowboard oldSnowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
-
-        if (oldSnowboard != null) {
-            oldSnowboard.setSnowboardHight(snowboard.getSnowboardHight());
-            oldSnowboard.setSnowboardArt(snowboard.getSnowboardArt());
-            oldSnowboard.setSnowboardPrice(snowboard.getSnowboardPrice());
-            oldSnowboard.setSnowboardMarke(snowboard.getSnowboardMarke());
-
-            DataHandler.updateSnowboard();
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
         } else {
-            httpStatus = 410;
+
+            Snowboard oldSnowboard = DataHandler.readSnowboardByUUID(snowboardUUID);
+
+            if (oldSnowboard != null) {
+                oldSnowboard.setSnowboardHight(snowboard.getSnowboardHight());
+                oldSnowboard.setSnowboardArt(snowboard.getSnowboardArt());
+                oldSnowboard.setSnowboardPrice(snowboard.getSnowboardPrice());
+                oldSnowboard.setSnowboardMarke(snowboard.getSnowboardMarke());
+
+                DataHandler.updateSnowboard();
+            } else {
+                httpStatus = 410;
+            }
         }
 
         return Response

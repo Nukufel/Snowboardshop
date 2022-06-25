@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 
 /**
  * Services for Shop
+ *
  * @author Niklas Vogel (Nukufel)
  * @version 1.2
  * @since 20220613
@@ -30,71 +31,96 @@ import java.util.stream.Collectors;
 public class ShopService {
 
     /**
-     *sorts the all shops after sort param
+     * sorts the all shops after sort param
+     *
      * @param sort string for sorting
      * @return all items of Shop sorted or unsorted
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listShops(@QueryParam("sort") String sort ) {
-        List<Shop> shopList = DataHandler.readAllShops();
-        List<Shop> cloned_shopList = new ArrayList<>(shopList);
-        if (sort!=null && !sort.isEmpty()) {
-            if(sort.equals("name")){
-                cloned_shopList.sort(Comparator.comparing(Shop::getShopName));
-            }else if(sort.equals("snowboards")){
-                cloned_shopList.sort(Comparator.comparing(Shop::getSnowboardUUIDListLength));
+    public Response listShops(
+            @QueryParam("sort") String sort,
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 200;
+        List<Shop> shopList;
+        List<Shop> cloned_shopList = null;
+
+        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            shopList = DataHandler.readAllShops();
+            cloned_shopList = new ArrayList<>(shopList);
+            if (sort != null && !sort.isEmpty()) {
+                if (sort.equals("name")) {
+                    cloned_shopList.sort(Comparator.comparing(Shop::getShopName));
+                } else if (sort.equals("snowboards")) {
+                    cloned_shopList.sort(Comparator.comparing(Shop::getSnowboardUUIDListLength));
+                }
             }
-            return Response
-                    .status(200)
-                    .entity(cloned_shopList)
-                    .build();
-        }else {
-            return Response
-                    .status(200)
-                    .entity(shopList)
-                    .build();
         }
+        return Response
+                .status(httpStatus)
+                .entity(cloned_shopList)
+                .build();
     }
 
     /**
      * reads an item by its UUID
+     *
      * @param shopUUID ID of the object
      * @return object of shop
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response shop(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") @QueryParam("uuid") String shopUUID) {
-        Shop shop = DataHandler.readShopByUUID(shopUUID);
+    public Response shop(
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String shopUUID,
+            @CookieParam("userRole") String userRole
+    ) {
+        Shop shop = null;
+        int httpStatus = 200;
 
-        if (shop==null) {
-            return Response.status(404).entity(shop).build();
+        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            shop = DataHandler.readShopByUUID(shopUUID);
+            if (shop == null) {
+                httpStatus = 404;
+            }
         }
 
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(shop)
                 .build();
     }
 
 
-
-
     /**
      * daletes a shop by its uuid
-     * @return  empty String
+     *
+     * @return empty String
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteShop(@NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")  @QueryParam("uuid") String shopUUID) {
+    public Response deleteShop(
+            @NotEmpty @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String shopUUID,
+            @CookieParam("userRole") String userRole
+    ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteShop(shopUUID)){
-            httpStatus = 410;
-        }
 
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteShop(shopUUID)) {
+                httpStatus = 410;
+            }
+        }
         return Response
                 .status(httpStatus)
                 .entity("")
@@ -105,6 +131,7 @@ public class ShopService {
 
     /**
      * creats a new shop
+     *
      * @param shop beanparam: has all atributs of class shop
      * @return empty string
      */
@@ -113,19 +140,23 @@ public class ShopService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response createShop(
             @Valid @BeanParam Shop shop,
-
             @UniqueListUUID
             @NotNull
-            @FormParam("snowboardUUIDList") List< @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList
-
+            @FormParam("snowboardUUIDList") List<@Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList,
+            @CookieParam("userRole") String userRole
     ) {
-        shop.setSnowboardUUIDList(snowboardUUIDList);
-        shop.setShopUUID(UUID.randomUUID().toString());
 
-        DataHandler.insertShop(shop);
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            shop.setSnowboardUUIDList(snowboardUUIDList);
+            shop.setShopUUID(UUID.randomUUID().toString());
+            DataHandler.insertShop(shop);
+        }
 
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -133,8 +164,9 @@ public class ShopService {
 
     /**
      * updates a shop
-     * @param shop beanparam: has all atributs of class shop
-     * @param shopUUID the shop that is going to be updated
+     *
+     * @param shop              beanparam: has all atributs of class shop
+     * @param shopUUID          the shop that is going to be updated
      * @param snowboardUUIDList not in beanparam for validation
      * @return empty string
      */
@@ -147,35 +179,38 @@ public class ShopService {
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}")
             @FormParam("shopUUID") String shopUUID,
-
             @UniqueListUUID
             @NotNull
-            @FormParam("snowboardUUIDList") List< @Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList
+            @FormParam("snowboardUUIDList") List<@Pattern(regexp = "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}") String> snowboardUUIDList,
+            @CookieParam("userRole") String userRole
 
     ) {
-        int httpStatus;
-        Shop oldShop = DataHandler.readShopByUUID(shopUUID);
-        if (oldShop!=null) {
-            oldShop.setShopTel(shop.getShopTel());
-            oldShop.setShopPLZ(shop.getShopPLZ());
-            oldShop.setShopAdresse(shop.getShopAdresse());
-            oldShop.setShopName(shop.getShopName());
-            oldShop.setSnowboardUUIDList(snowboardUUIDList);
-            DataHandler.updateShop();
-            httpStatus = 200;
-        } else {
-            httpStatus = 404;
-        }
 
+
+        int httpStatus = 200;
+        Shop oldShop = null;
+
+        if (userRole == null || userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            oldShop = DataHandler.readShopByUUID(shopUUID);
+            if (oldShop != null) {
+                oldShop.setShopTel(shop.getShopTel());
+                oldShop.setShopPLZ(shop.getShopPLZ());
+                oldShop.setShopAdresse(shop.getShopAdresse());
+                oldShop.setShopName(shop.getShopName());
+                oldShop.setSnowboardUUIDList(snowboardUUIDList);
+                DataHandler.updateShop();
+                httpStatus = 200;
+            } else {
+                httpStatus = 404;
+            }
+        }
         return Response
                 .status(httpStatus)
                 .entity("")
                 .build();
-
-
     }
-
-
 }
 
 
