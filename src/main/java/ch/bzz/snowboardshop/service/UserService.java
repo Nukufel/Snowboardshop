@@ -20,7 +20,7 @@ public class UserService {
             @FormParam("password") String password
     )
     {
-        int httpStatus;
+        int httpStatus = 200;
         NewCookie cookie = null;
         User user = UserData.findUser(username, password);
         if (user == null || user.getRole() == null || user.getRole().equals("guest")){
@@ -33,7 +33,7 @@ public class UserService {
                     "/",
                     "",
                     "Login-Cookie",
-                    1,
+                    600,
                     false
 
             );
