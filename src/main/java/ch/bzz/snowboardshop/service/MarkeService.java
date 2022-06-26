@@ -44,7 +44,7 @@ public class MarkeService {
         List<Marke> markeList = null;
         List<Marke> cloned_markeList = null;
 
-        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
         } else {
             markeList = DataHandler.readAllMarke();
@@ -80,7 +80,7 @@ public class MarkeService {
         int httpStatus = 200;
         Marke marke = null;
 
-        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
         } else {
             if (markeUUID.isEmpty()) {
@@ -112,7 +112,7 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteMarke(markeUUID)) {
@@ -142,7 +142,7 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             marke.setMarkeUUID(UUID.randomUUID().toString());
@@ -172,7 +172,7 @@ public class MarkeService {
     ) {
         int httpStatus = 200;
         Marke oldMarke = null;
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (markeUUID != null) {

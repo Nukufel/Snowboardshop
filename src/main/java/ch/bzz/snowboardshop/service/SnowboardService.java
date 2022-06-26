@@ -40,7 +40,7 @@ public class SnowboardService {
 
         List<Snowboard> snowboardList;
         List<Snowboard> cloned_snowboardList = null;
-        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
         } else {
             snowboardList = DataHandler.readAllSnowboards();
@@ -78,7 +78,7 @@ public class SnowboardService {
 
         Snowboard snowboard = null;
 
-        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
         } else {
 
@@ -112,7 +112,7 @@ public class SnowboardService {
     ) {
         int httpStatus = 200;
 
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteSnowboard(snowboardUUID)) {
@@ -142,7 +142,7 @@ public class SnowboardService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             snowboard.setSnowboardUUID(UUID.randomUUID().toString());
@@ -171,7 +171,7 @@ public class SnowboardService {
     ) {
         int httpStatus = 200;
 
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
 

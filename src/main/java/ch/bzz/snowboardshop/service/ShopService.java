@@ -83,7 +83,7 @@ public class ShopService {
         Shop shop = null;
         int httpStatus = 200;
 
-        if (userRole == null || userRole.equals("user") || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
         } else {
             shop = DataHandler.readShopByUUID(shopUUID);
@@ -114,7 +114,7 @@ public class ShopService {
     ) {
         int httpStatus = 200;
 
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteShop(shopUUID)) {
@@ -147,7 +147,7 @@ public class ShopService {
     ) {
 
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             shop.setSnowboardUUIDList(snowboardUUIDList);
@@ -190,7 +190,7 @@ public class ShopService {
         int httpStatus = 200;
         Shop oldShop = null;
 
-        if (userRole == null || userRole.equals("admin")) {
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
             oldShop = DataHandler.readShopByUUID(shopUUID);
