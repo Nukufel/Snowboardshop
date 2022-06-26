@@ -21,23 +21,24 @@ public class UserService {
     )
     {
         int httpStatus;
-
+        NewCookie cookie = null;
         User user = UserData.findUser(username, password);
         if (user == null || user.getRole() == null || user.getRole().equals("guest")){
             httpStatus = 404;
         }else{
             httpStatus = 200;
-        }
-        NewCookie cookie = new NewCookie(
-                "userRole",
-                "guest",
-                "/",
-                "",
-                "Login-Cookie",
-                1,
-                false
+             cookie = new NewCookie(
+                    "userRole",
+                     user.getRole(),
+                    "/",
+                    "",
+                    "Login-Cookie",
+                    1,
+                    false
 
-        );
+            );
+        }
+
         Response response = Response
                 .status(httpStatus)
                 .entity("")
