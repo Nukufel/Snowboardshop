@@ -9,6 +9,10 @@ import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 
+
+/**
+ * logs in a person by name and password
+ */
 @Path("user")
 public class UserService {
 
@@ -48,6 +52,10 @@ public class UserService {
     }
 
 
+    /**
+     * logs out current loged in person
+     * @return empty String
+     */
     @DELETE
     @Path("logout")
     @Produces(MediaType.TEXT_PLAIN)
