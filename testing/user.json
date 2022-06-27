@@ -1,0 +1,18 @@
+[{
+  "userUUID" : "234a9da1-e3b1-419f-af78-0b4c976e470b",
+  "username" : "Niki",
+  "password" : "12345",
+  "role" : "user"
+},
+{
+  "userUUID" : "234a9da1-e3b1-419f-af78-0b4c976e470c",
+  "username" : "Vivek",
+  "password" : "12345",
+  "role" : "admin"
+},
+{
+  "userUUID" : "234a9da1-e3b1-419f-af78-0b4c976e470d",
+  "username" : "Johanna",
+  "password" : "12345",
+  "role" : "guest"
+}]

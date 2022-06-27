@@ -1,0 +1,576 @@
+{
+	"id": "1695bb5a-8ab9-45ce-86c3-9bacc44a86bf",
+	"name": "Snowboardshop_User",
+	"timestamp": "2022-06-27T20:09:55.047Z",
+	"collection_id": "fc9b2392-438c-4cc0-9b08-9eea5b3c3b1f",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 18,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "63651b8b-90fc-49b2-aac8-6ee6f73f5780",
+			"name": "UserLogin faild",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 21,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "c542f2c4-da9d-43e2-acaf-b192396acda6",
+			"name": "UserLogin",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 67,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				67
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "e563265b-95bd-44fb-bdf5-e2287b8280ce",
+			"name": "read valid",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "cd6b8707-f59f-4470-bc94-e15bdff20a47",
+			"name": "hight happy",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+			"time": 698,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				698
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "536750ea-ff52-4aaf-b137-ceccaaa6cd85",
+			"name": "UserLogout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/logout",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "4b60fa7c-5636-4836-a580-b3c03dd3dc8e",
+			"name": "read valid after Logout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 17,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "6ce5ec0f-0c5b-4896-aacb-8cbede34db7e",
+			"name": "AdminLogin faild",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 19,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "a06a5a59-99f6-47a6-acc6-4b87ca9029cf",
+			"name": "AdminLogin",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "06e044ed-b231-415b-9d06-4a8fe4d40531",
+			"name": "read valid",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "412bbcba-db0d-48a7-8afa-983afb69bba5",
+			"name": "hight happy",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+			"time": 243,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				243
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "6ad76062-e6ae-4161-83f1-e543605fc56b",
+			"name": "AdminLogout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/logout",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "b88aaf5e-da43-47e8-9d6f-9084ba82d2b7",
+			"name": "read valid after logout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 14,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "d8a4436d-8ea5-4cf7-aaf6-4203caae29c0",
+			"name": "GuestLogin faild",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 35,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "e6545230-09ba-4f04-870e-a0c22e64c792",
+			"name": "GuestLogin",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/login",
+			"time": 20,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "f54aab3f-a464-4669-9ea7-02c64eb242c8",
+			"name": "read valid",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 13,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "11a587c8-9a7a-4b4c-90c4-74f1f668ac0b",
+			"name": "hight happy",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/snowboard/update",
+			"time": 30,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "b4f15c34-3eef-4eaa-ad84-7430640d35c7",
+			"name": "GuestLogout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/user/logout",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		},
+		{
+			"id": "5c735bbf-6a63-4a60-a3ff-3069cde6291d",
+			"name": "read valid after logout",
+			"url": "http://localhost:8080/Snowboardshop-1.0/resource/shop/read?uuid=21fd5cbe-5ba6-4a24-ae7b-5aa2d9a82323",
+			"time": 8,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"response is as expected": true
+			},
+			"testPassFailCounts": {
+				"response is as expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"response is as expected": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1344,
+	"collection": {
+		"requests": [
+			{
+				"id": "63651b8b-90fc-49b2-aac8-6ee6f73f5780",
+				"method": "POST"
+			},
+			{
+				"id": "c542f2c4-da9d-43e2-acaf-b192396acda6",
+				"method": "POST"
+			},
+			{
+				"id": "e563265b-95bd-44fb-bdf5-e2287b8280ce",
+				"method": "GET"
+			},
+			{
+				"id": "cd6b8707-f59f-4470-bc94-e15bdff20a47",
+				"method": "PUT"
+			},
+			{
+				"id": "536750ea-ff52-4aaf-b137-ceccaaa6cd85",
+				"method": "DELETE"
+			},
+			{
+				"id": "4b60fa7c-5636-4836-a580-b3c03dd3dc8e",
+				"method": "GET"
+			},
+			{
+				"id": "6ce5ec0f-0c5b-4896-aacb-8cbede34db7e",
+				"method": "POST"
+			},
+			{
+				"id": "a06a5a59-99f6-47a6-acc6-4b87ca9029cf",
+				"method": "POST"
+			},
+			{
+				"id": "06e044ed-b231-415b-9d06-4a8fe4d40531",
+				"method": "GET"
+			},
+			{
+				"id": "412bbcba-db0d-48a7-8afa-983afb69bba5",
+				"method": "PUT"
+			},
+			{
+				"id": "6ad76062-e6ae-4161-83f1-e543605fc56b",
+				"method": "DELETE"
+			},
+			{
+				"id": "b88aaf5e-da43-47e8-9d6f-9084ba82d2b7",
+				"method": "GET"
+			},
+			{
+				"id": "d8a4436d-8ea5-4cf7-aaf6-4203caae29c0",
+				"method": "POST"
+			},
+			{
+				"id": "e6545230-09ba-4f04-870e-a0c22e64c792",
+				"method": "POST"
+			},
+			{
+				"id": "f54aab3f-a464-4669-9ea7-02c64eb242c8",
+				"method": "GET"
+			},
+			{
+				"id": "11a587c8-9a7a-4b4c-90c4-74f1f668ac0b",
+				"method": "PUT"
+			},
+			{
+				"id": "b4f15c34-3eef-4eaa-ad84-7430640d35c7",
+				"method": "DELETE"
+			},
+			{
+				"id": "5c735bbf-6a63-4a60-a3ff-3069cde6291d",
+				"method": "GET"
+			}
+		]
+	}
+}
