@@ -42,7 +42,7 @@ public class SnowboardService {
 
         List<Snowboard> snowboardList;
         List<Snowboard> cloned_snowboardList = null;
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             snowboardList = DataHandler.readAllSnowboards();
@@ -81,7 +81,7 @@ public class SnowboardService {
 
         Snowboard snowboard = null;
 
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
             httpStatus = 403;
         } else {
 
@@ -116,7 +116,7 @@ public class SnowboardService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteSnowboard(snowboardUUID)) {
@@ -148,7 +148,7 @@ public class SnowboardService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             snowboard.setSnowboardUUID(UUID.randomUUID().toString());
@@ -178,7 +178,7 @@ public class SnowboardService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
 

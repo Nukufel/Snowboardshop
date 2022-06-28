@@ -47,7 +47,7 @@ public class MarkeService {
         List<Marke> markeList = null;
         List<Marke> cloned_markeList = null;
 
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             markeList = DataHandler.readAllMarke();
@@ -84,7 +84,7 @@ public class MarkeService {
         Marke marke = null;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (markeUUID.isEmpty()) {
@@ -118,7 +118,7 @@ public class MarkeService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteMarke(markeUUID)) {
@@ -150,7 +150,7 @@ public class MarkeService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             marke.setMarkeUUID(UUID.randomUUID().toString());
@@ -182,7 +182,7 @@ public class MarkeService {
         userRole = AESEncrypt.decrypt(userRole);
 
         Marke oldMarke = null;
-        if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             if (markeUUID != null) {
