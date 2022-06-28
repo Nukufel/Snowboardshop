@@ -1,5 +1,6 @@
 package ch.bzz.snowboardshop.service;
 
+import ch.bzz.snowboardshop.data.AESEncrypt;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Snowboard;
@@ -41,6 +42,8 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
+
         List<Marke> markeList = null;
         List<Marke> cloned_markeList = null;
 
@@ -79,6 +82,7 @@ public class MarkeService {
     ) {
         int httpStatus = 200;
         Marke marke = null;
+        userRole = AESEncrypt.decrypt(userRole);
 
         if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
@@ -112,6 +116,8 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
+
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
@@ -142,6 +148,8 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
+
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
@@ -171,6 +179,8 @@ public class MarkeService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
+
         Marke oldMarke = null;
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;

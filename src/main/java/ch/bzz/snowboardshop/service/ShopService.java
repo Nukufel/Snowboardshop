@@ -1,6 +1,7 @@
 package ch.bzz.snowboardshop.service;
 
 import ch.bzz.snowboardshop.annotation.UniqueListUUID;
+import ch.bzz.snowboardshop.data.AESEncrypt;
 import ch.bzz.snowboardshop.data.DataHandler;
 import ch.bzz.snowboardshop.model.Marke;
 import ch.bzz.snowboardshop.model.Shop;
@@ -44,6 +45,7 @@ public class ShopService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
         List<Shop> shopList;
         List<Shop> cloned_shopList = null;
 
@@ -82,6 +84,7 @@ public class ShopService {
     ) {
         Shop shop = null;
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
 
         if (userRole == null || userRole.equals("guest")) {
             httpStatus = 403;
@@ -113,6 +116,7 @@ public class ShopService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
 
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
@@ -147,6 +151,8 @@ public class ShopService {
     ) {
 
         int httpStatus = 200;
+        userRole = AESEncrypt.decrypt(userRole);
+
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;
         } else {
@@ -189,6 +195,7 @@ public class ShopService {
 
         int httpStatus = 200;
         Shop oldShop = null;
+        userRole = AESEncrypt.decrypt(userRole);
 
         if (userRole == null || userRole.equals("guest") || userRole.equals("user")) {
             httpStatus = 403;

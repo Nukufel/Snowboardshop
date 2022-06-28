@@ -1,5 +1,6 @@
 package ch.bzz.snowboardshop.service;
 
+import ch.bzz.snowboardshop.data.AESEncrypt;
 import ch.bzz.snowboardshop.data.UserData;
 import ch.bzz.snowboardshop.model.User;
 
@@ -33,7 +34,7 @@ public class UserService {
             httpStatus = 200;
              cookie = new NewCookie(
                     "userRole",
-                     user.getRole(),
+                     AESEncrypt.encrypt(user.getRole()),
                     "/",
                     "",
                     "Login-Cookie",
