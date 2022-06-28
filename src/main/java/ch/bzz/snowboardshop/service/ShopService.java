@@ -49,7 +49,7 @@ public class ShopService {
         List<Shop> shopList;
         List<Shop> cloned_shopList = null;
 
-        if (userRole == null || !userRole.equals("admin")|| !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             shopList = DataHandler.readAllShops();
@@ -86,7 +86,7 @@ public class ShopService {
         int httpStatus = 200;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             shop = DataHandler.readShopByUUID(shopUUID);

@@ -47,7 +47,7 @@ public class MarkeService {
         List<Marke> markeList = null;
         List<Marke> cloned_markeList = null;
 
-        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             markeList = DataHandler.readAllMarke();
@@ -84,7 +84,7 @@ public class MarkeService {
         Marke marke = null;
         userRole = AESEncrypt.decrypt(userRole);
 
-        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             if (markeUUID.isEmpty()) {

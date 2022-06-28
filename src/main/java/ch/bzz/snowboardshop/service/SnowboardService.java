@@ -42,7 +42,7 @@ public class SnowboardService {
 
         List<Snowboard> snowboardList;
         List<Snowboard> cloned_snowboardList = null;
-        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
             snowboardList = DataHandler.readAllSnowboards();
@@ -81,7 +81,7 @@ public class SnowboardService {
 
         Snowboard snowboard = null;
 
-        if (userRole == null || !userRole.equals("admin") || !userRole.equals("user")) {
+        if (userRole == null || !userRole.equals("admin") && !userRole.equals("user")) {
             httpStatus = 403;
         } else {
 
