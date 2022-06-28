@@ -12,7 +12,7 @@ import java.awt.*;
 
 
 /**
- * logs in a person by name and password
+ * logs in a person by its name and password
  */
 @Path("user")
 public class UserService {
@@ -54,8 +54,8 @@ public class UserService {
 
 
     /**
-     * logs out current loged in person
-     * @return empty String
+     * logs out currently loged in person
+     * @return String empty
      */
     @DELETE
     @Path("logout")
